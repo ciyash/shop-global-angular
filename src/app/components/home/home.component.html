@@ -37,7 +37,7 @@
     <div class="categories-wrapper" #scrollable>
       <div class="categories horizontal d-flex">
         <div class="category-item" >
-          <img src="assets/women wear.svg" alt="stores" (click)="getBrands()"  />
+          <img src="assets/women wear.svg" alt="stores"   />
           <span>All Stores</span>
         </div>
         <div class="category-item" *ngFor="let item of categories">
@@ -49,24 +49,22 @@
     <button class="scroll-btn right" (click)="scrollCategoriesRight()">&#10095;</button>
   </div>
   
-
-
   <section class="top-deals-section">
       <h1>Top Deals</h1>
       <p>Shop the most popular deals from your favourite brands</p>
   </section>
 
-  <!-- <div class="brand-scroll-container">
+  <div class="brand-scroll-container">
     <button class="brand-scroll-btn left" (click)="scrollBrandsLeft()">&#10094;</button>
     <div class="brand-scroll-wrapper" #brandScrollable>
       <div class="brand-scroll-item" *ngFor="let brand of brands">
-        <img [src]="brand.img" [alt]="brand.alt" />
-        <span>{{ brand.label }}</span>
+        <img [src]="brand.image" alt="brand.alt" (click)="TopBrandsid(brand._id)" />
+        <span>{{ brand.companyName }}</span>
       </div>
     </div>
     <button class="brand-scroll-btn right" (click)="scrollBrandsRight()">&#10095;</button>
   </div>
-   -->
+  
     
 
   <div class="selling-online">

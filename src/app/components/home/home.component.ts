@@ -19,30 +19,32 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategory();
+    this.getCompanyBrandsOnly(); 
+
   }
 
-  getBrands() {
-    this.api.CompanyBrands().subscribe({
-      next: (res: any) => {
-        if (res && Array.isArray(res)) {
-          this.brands = res;
-          this.router.navigate(['/products/brands'], { state: { brands: this.brands } });
-
-        } else {
-          console.warn('Unexpected response format:', res);
-        }
-      },
-      error: (err) => {
-        console.error('Failed to load brands:', err);
+getCompanyBrandsOnly() {
+  this.api.CompanyBrands().subscribe({
+    next: (res: any) => {
+      if (res && Array.isArray(res)) {
+        this.brands = res;
+        console.log("Initial load brands:", this.brands);
       }
-    });
-  }
-  
+    },
+    error: (err) => {
+      console.error('Failed to load brands:', err);
+    }
+  });
+}
+TopBrandsid(brandId: any) {
+  console.log('Clicked ID:', brandId);
+  this.router.navigate(['/products/topbrands', brandId]);
+}
+
   getCategory() {
     this.api.GetCatergory().subscribe({
       next: (response: any) => {
         this.categories = response;
-
       },
       error: (err) => {
         console.error('Error fetching categories:', err);
@@ -55,6 +57,7 @@ getId(categoryId: any) {
   this.router.navigate(['/products/categories', categoryId]);
 
 }
+
 
   scrollCategoriesLeft() {
     this.scrollable.nativeElement.scrollBy({ left: -100, behavior: 'smooth' });
