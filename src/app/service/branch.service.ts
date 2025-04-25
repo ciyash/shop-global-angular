@@ -23,10 +23,21 @@ export class BranchService {
     return this.http.get(`${this.AUTH_API}/api/product/subcategoryId/${id}`);
   }
 
+
+
+
+  companyTopdeals(id:any){
+    return this.http.get(`${this.AUTH_API}/api/product/companyId/${id}`);
+
+  }
+
+
   Signup(userData: any) {
     return this.http.post(`${this.AUTH_API}/api/user/signup`, userData);
   }
   Login(value: any) {
     return this.http.post(`${this.AUTH_API}/api/user/login`, value);
   }
+
+
 }
