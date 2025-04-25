@@ -7,6 +7,7 @@ import { CompanyTopProductsComponent } from './company-top-products/company-top-
 
 const routes: Routes = [
   { path: 'categories/:id', component: CategoriesComponent },
+  // { path: 'brands', component: CompanyBrandsComponent },
   { path: 'brands', component: CompanyBrandsComponent },
   { path: 'topbrands/:id', component: CompanyTopProductsComponent }
 

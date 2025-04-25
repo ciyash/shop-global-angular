@@ -10,10 +10,12 @@ import { BranchService } from 'src/app/service/branch.service';
 export class HomeComponent implements OnInit {
   @ViewChild('scrollable', { static: false }) scrollable!: ElementRef;
   @ViewChild('brandScrollable', { static: false }) brandScrollable!: ElementRef;
+  @ViewChild('topScrollable', { static: false }) topScrollable!: ElementRef;
   brands:any
   subcategories: any;
   categories: any;
   categoriesId: any;
+  brandss: any;
 
   constructor(private api: BranchService, private router: Router) {}
 
@@ -22,20 +24,26 @@ export class HomeComponent implements OnInit {
     this.getCompanyBrandsOnly(); 
 
   }
-
-getCompanyBrandsOnly() {
-  this.api.CompanyBrands().subscribe({
-    next: (res: any) => {
-      if (res && Array.isArray(res)) {
-        this.brands = res;
-        console.log("Initial load brands:", this.brands);
+  getCompanyBrandsOnly() {
+    this.api.CompanyBrands().subscribe({
+      next: (res: any) => {
+        if (res && Array.isArray(res)) {
+          this.brands = res;
+          console.log('Initial load brands:', this.brands);
+        }
+      },
+      error: (err) => {
+        console.error('Failed to load brands:', err);
       }
-    },
-    error: (err) => {
-      console.error('Failed to load brands:', err);
-    }
-  });
-}
+    });
+  }
+
+  Getbrands() {
+    this.router.navigate(['/products/brands'], {
+      state: { brands: this.brands }
+    });
+  }
+
 TopBrandsid(brandId: any) {
   console.log('Clicked ID:', brandId);
   this.router.navigate(['/products/topbrands', brandId]);
@@ -74,5 +82,14 @@ getId(categoryId: any) {
   scrollBrandsRight() {
     this.brandScrollable.nativeElement.scrollBy({ left: 100, behavior: 'smooth' });
   }
+
+  scrollBrandLeft() {
+    this.topScrollable.nativeElement.scrollBy({ left: -100, behavior: 'smooth' });
+  }
+
+  scrollBrandRight() {
+    this.topScrollable.nativeElement.scrollBy({ left: 100, behavior: 'smooth' });
+  }
+
 }
 
