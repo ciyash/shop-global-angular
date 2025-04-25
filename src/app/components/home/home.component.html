@@ -1,0 +1,477 @@
+<app-header></app-header>
+  <div class="container-fluid" style="background: url('assets/hero-section.png') no-repeat center center / cover;">
+    <section class="hero-section container" style="padding-top: 180px;">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="tick-box-inline">
+            <div><span class="tick">✓</span> Doorstep Delivery</div>
+            <div><span class="tick">✓</span> Trusted Professionals</div>
+            <div><span class="tick">✓</span> 24/7 Support</div>
+          </div>
+          <h1>
+            Everything You Need, All in One Place of
+            <span class="highlight">FAVORITE SHOP</span>
+          </h1>
+          
+          <p>From clothes to pickles, sweets to skincare – shop it all here...</p>
+          
+          <div class="hero-buttons">
+            <a href="#" class="btn primary">Shop collection</a>
+            <a href="#" class="btn secondary">Contact</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/hero banner.svg" alt="Hero" />
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+
+  
+  
+
+  <div class="scroll-container">
+    <button class="scroll-btn left" (click)="scrollCategoriesLeft()">&#10094;</button>
+    <div class="categories-wrapper" #scrollable>
+      <div class="categories horizontal d-flex">
+        <div class="category-item" >
+          <img src="assets/women wear.svg" alt="stores" (click)="getBrands()"  />
+          <span>All Stores</span>
+        </div>
+        <div class="category-item" *ngFor="let item of categories">
+          <img [src]="item.image" [alt]="item.alt" (click)="getId(item._id)" />
+          <span>{{ item.subCategoryName }}</span>
+        </div>
+      </div>
+    </div>
+    <button class="scroll-btn right" (click)="scrollCategoriesRight()">&#10095;</button>
+  </div>
+  
+
+
+  <section class="top-deals-section">
+      <h1>Top Deals</h1>
+      <p>Shop the most popular deals from your favourite brands</p>
+  </section>
+
+  <!-- <div class="brand-scroll-container">
+    <button class="brand-scroll-btn left" (click)="scrollBrandsLeft()">&#10094;</button>
+    <div class="brand-scroll-wrapper" #brandScrollable>
+      <div class="brand-scroll-item" *ngFor="let brand of brands">
+        <img [src]="brand.img" [alt]="brand.alt" />
+        <span>{{ brand.label }}</span>
+      </div>
+    </div>
+    <button class="brand-scroll-btn right" (click)="scrollBrandsRight()">&#10095;</button>
+  </div>
+   -->
+    
+
+  <div class="selling-online">
+    <img src="assets/start selling online.svg" alt="selling online" />
+  
+    <!-- Floating SG logo -->
+    <img src="assets/S.G logo.png" alt="SG Logo" class="sg-logo" />
+
+    
+    <div class="text-overlay">
+      <h1>Start selling online.</h1>
+      <p>Take your business online with Shop Global. Get your free online store in 30 seconds.</p>
+      <button class="get-started-btn">Get started</button>
+    </div>
+  </div>
+ 
+  <div class="explore-fashion-wrapper">
+    <div class="explore-text-block">
+      
+      <div class="multi-style-heading">
+        <span class="white-bg">LET’S</span><br />
+        <span>EXPLORE</span><br />
+        <span class="yellow-bg">UNIQUE</span>
+        <h1 class="highlight-text">CLOTHES</h1>
+      </div>
+      <p>Live for Influential and Innovative fashion!</p>
+      <button class="explore-shop-btn">Shop Now</button>
+    </div>
+  
+    <div class="explore-image-block">
+      <img src="assets/lets explore-banner.svg" alt="Explore Clothes Banner" />
+    </div>
+  </div>
+
+
+  <div class="brands image">
+    <img src="assets/brands.svg" alt="brands">
+  </div>
+
+  
+  <div class="zara banner">
+    <img src="assets/zara banner.svg" alt="zara">
+    <div class="text-content">
+      <h1><span class="payday-box">PAYDAY</span> SALE NOW</h1>
+
+      <p>Spend minimal $100 get 30% off voucher 
+         code for your next purchase</p>
+      <h2>11 April - 10 April 2025</h2>
+      <p class="Terms"><i>*Terms & Conditions apply</i></p>
+      
+      <button class="sparkle-button">
+        <span class="button-text">Shop Now</span>
+        <span class="sparkle-effect"></span>
+      </button>
+      
+
+    </div>
+  </div>
+
+
+  
+
+  <div class="Trending-deals">
+    <h1>Trending</h1>
+    <p>These styles are in everyone's cart</p>
+  </div>
+  <div class="trending-scroll-wrapper">
+    
+    <div class="trending-product-card">
+      <div class="product-image">
+        <img src="assets/acne.svg" alt="Product 1" />
+        <span class="fav-icon"><i class="far fa-heart"></i></span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Acne</h3>
+        <p class="product-desc">Nice product description goes here</p>
+        <p class="product-price">$234.00</p>
+        <a href="#" class="view-detail">View Detail</a>
+      </div>
+    </div>
+    <div class="trending-product-card">
+      <div class="product-image">
+        <img src="assets/bueberry.svg" alt="Product 2" />
+        <span class="fav-icon"><i class="far fa-heart"></i></span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">bueberry</h3>
+        <p class="product-desc">Nice product description goes here</p>
+        <p class="product-price">$298.00</p>
+        <a href="#" class="view-detail">View Detail</a>
+      </div>
+    </div>
+    <div class="trending-product-card">
+      <div class="product-image">
+        <img src="assets/levis.svg" alt="Product 12" />
+        <span class="fav-icon"><i class="far fa-heart"></i></span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">levis</h3>
+        <p class="product-desc">Nice product description goes here</p>
+        <p class="product-price">$264.00</p>
+        <a href="#" class="view-detail">View Detail</a>
+      </div>
+    </div>
+    <div class="trending-product-card">
+      <div class="product-image">
+        <img src="assets/acne.svg" alt="Product 1" />
+        <span class="fav-icon"><i class="far fa-heart"></i></span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Acne</h3>
+        <p class="product-desc">Nice product description goes here</p>
+        <p class="product-price">$234.00</p>
+        <a href="#" class="view-detail">View Detail</a>
+      </div>
+    </div>
+    <div class="trending-product-card">
+      <div class="product-image">
+        <img src="assets/bueberry.svg" alt="Product 2" />
+        <span class="fav-icon"><i class="far fa-heart"></i></span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">bueberry</h3>
+        <p class="product-desc">Nice product description goes here</p>
+        <p class="product-price">$298.00</p>
+        <a href="#" class="view-detail">View Detail</a>
+      </div>
+    </div>
+  <div class="trending-product-card">
+      <div class="product-image">
+        <img src="assets/levis.svg" alt="Product 12" />
+        <span class="fav-icon"><i class="far fa-heart"></i></span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">levis</h3>
+        <p class="product-desc">Nice product description goes here</p>
+        <p class="product-price">$264.00</p>
+        <a href="#" class="view-detail">View Detail</a>
+      </div>
+    </div>
+    <div class="trending-product-card">
+      <div class="product-image">
+        <img src="assets/acne.svg" alt="Product 1" />
+        <span class="fav-icon"><i class="far fa-heart"></i></span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Acne</h3>
+        <p class="product-desc">Nice product description goes here</p>
+        <p class="product-price">$234.00</p>
+        <a href="#" class="view-detail">View Detail</a>
+      </div>
+    </div>
+    <div class="trending-product-card">
+      <div class="product-image">
+        <img src="assets/bueberry.svg" alt="Product 2" />
+        <span class="fav-icon"><i class="far fa-heart"></i></span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">bueberry</h3>
+        <p class="product-desc">Nice product description goes here</p>
+        <p class="product-price">$298.00</p>
+        <a href="#" class="view-detail">View Detail</a>
+      </div>
+    </div>
+  <div class="trending-product-card">
+      <div class="product-image">
+        <img src="assets/levis.svg" alt="Product 12" />
+        <span class="fav-icon"><i class="far fa-heart"></i></span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">levis</h3>
+        <p class="product-desc">Nice product description goes here</p>
+        <p class="product-price">$264.00</p>
+        <a href="#" class="view-detail">View Detail</a>
+      </div>
+      
+    </div>
+  </div> 
+   
+  <div class="wishlist-banner">
+    <div class="wishlist-image">
+      <img src="assets/whish-list banner.svg" alt="Wishlist Banner">
+    </div>
+    <div class="wishlist-text">
+      <h1>Create wish-lists across your favourite stores</h1>
+      <p>Shop and save your favorite items with a single click. Plus, get price-drop alerts so you can buy at the perfect time.</p>
+      
+
+      
+          <button>
+            <span class="text"> start Wishlist</span>
+            <span class="heart">💖</span>
+          </button>
+          
+
+        
+          >
+          <span class="sparkle" style="top: 80%; left: 30%; animation-delay: 0s;"></span>
+          <span class="sparkle" style="top: 85%; left: 50%; animation-delay: 0.2s;"></span>
+          <span class="sparkle" style="top: 90%; left: 70%; animation-delay: 0.4s;"></span>
+        </div>
+    </div>
+
+
+
+
+
+    <section class="top-deals-section">
+      <button class="see-btn">View All</button>
+
+      <h1>Trending Stores</h1>
+      <p>Discover the stores we're loving</p>
+  </section>
+  
+  <div class="brand-scroll-container">
+    <button class="brand-scroll-btn left" onclick="scrollLeft()">&#10094;</button>
+  
+    <div class="brand-scroll-wrapper" id="brand-scrollable">
+      <div class="brand-scroll-item">
+        <img src="assets/zara brand.svg" alt="Zara" />
+        <span>Zara</span>
+      </div>
+      <div class="brand-scroll-item">
+        <img src="assets/H&m brand.svg" alt="H&M" />
+        <span>H&M</span>
+      </div>
+      <div class="brand-scroll-item">
+        <img src="assets/nike brand.svg" alt="nike" />
+        <span>Nike</span>
+      </div>
+      <div class="brand-scroll-item">
+        <img src="assets/lotus brand.svg" alt="lotus" />
+        <span>Lotus</span>
+      </div>
+      <div class="brand-scroll-item">
+        <img src="assets/henna brand.svg" alt="HENNA" />
+        <span>Henna</span>
+      </div>
+      <div class="brand-scroll-item">
+        <img src="assets/zara brand.svg" alt="Zara" />
+        <span>Zara</span>
+      </div>
+      <div class="brand-scroll-item">
+        <img src="assets/H&m brand.svg" alt="H&M" />
+        <span>H&M</span>
+      </div>
+      <div class="brand-scroll-item">
+        <img src="assets/nike brand.svg" alt="nike" />
+        <span>Nike</span>
+      </div>
+      <div class="brand-scroll-item">
+        <img src="assets/lotus brand.svg" alt="lotus" />
+        <span>Lotus</span>
+      </div>
+      <div class="brand-scroll-item">
+        <img src="assets/henna brand.svg" alt="HENNA" />
+        <span>Henna</span>
+      </div>
+      <div class="brand-scroll-item">
+        <img src="assets/lotus brand.svg" alt="lotus" />
+        <span>Lotus</span>
+      </div>
+      <div class=""></div>
+    </div>
+
+    <button class="brand-scroll-btn right" onclick="scrollRight()">&#10095;</button>
+  </div>
+   
+  <div class="review"> 
+    <h1>What our customers say</h1>
+    
+    <div class="rectangle">
+      
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+
+        <h3>Amazing Service!</h3>
+        <p>I'm really impressed with the quality and speed. Highly recommend to everyone looking for reliable service.</p>
+        
+        <div class="customer">
+          <img src="https://i.pravatar.cc/50?img=5" alt="Customer Photo">
+          <span>Anusha</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+
+        <h3>Amazing Service!</h3>
+        <p>I'm really impressed with the quality and speed. Highly recommend to everyone looking for reliable service.</p>
+        
+        <div class="customer">
+          <img src="https://i.pravatar.cc/50?img=5" alt="Customer Photo">
+          <span>Anusha</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+
+        <h3>Amazing Service!</h3>
+        <p>I'm really impressed with the quality and speed. Highly recommend to everyone looking for reliable service.</p>
+        
+        <div class="customer">
+          <img src="https://i.pravatar.cc/50?img=5" alt="Customer Photo">
+          <span>Anusha</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  
+  
+  
+  
+
+
+
+
+  
+  
+  
+  
+ 
+  
+    
+  
+  
+  
+
+  <!-- Script for Menu Toggle -->
+  <!-- <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("navLinks");
+      const toggle = document.getElementById("menuToggle");
+
+      navLinks.classList.toggle("show");
+
+      toggle.innerHTML = navLinks.classList.contains("show") ? "&times;" : "&#9776;";
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        const navLinks = document.getElementById("navLinks");
+        const toggle = document.getElementById("menuToggle");
+
+        if (navLinks.classList.contains("show")) {
+          navLinks.classList.remove("show");
+          toggle.innerHTML = "&#9776;";
+        }
+      });
+    });
+  </script>
+
+
+  
+  <script>
+    const button = document.getElementById('shopNowBtn');
+  
+    button.addEventListener('mouseenter', () => {
+      const interval = setInterval(() => {
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('sparkle');
+  
+        const rect = button.getBoundingClientRect();
+        const x = Math.random() * rect.width;
+        const y = Math.random() * rect.height;
+  
+        sparkle.style.left = `${x}px`;
+        sparkle.style.top = `${y}px`;
+        sparkle.style.setProperty('--x', `${(Math.random() - 0.5) * 100}px`);
+        sparkle.style.setProperty('--y', `${(Math.random() - 0.5) * 100}px`);
+  
+        button.appendChild(sparkle);
+  
+        setTimeout(() => {
+          sparkle.remove();
+        }, 800);
+      }, 100);
+  
+      button._sparkleInterval = interval;
+    });
+  
+    button.addEventListener('mouseleave', () => {
+      clearInterval(button._sparkleInterval);
+    });
+  </script>
+  
+  
+  <script>
+    document.querySelectorAll('.fav-icon').forEach(icon => {
+      icon.addEventListener('click', function () {
+        const iTag = this.querySelector('i');
+  
+        if (iTag.classList.contains('far')) {
+          iTag.classList.remove('far');
+          iTag.classList.add('fas');
+          iTag.style.color = 'red';
+        } else {
+          iTag.classList.remove('fas');
+          iTag.classList.add('far');
+          iTag.style.color = '#888';
+        }
+      });
+    });
+  </script> -->
+  <app-footer></app-footer>

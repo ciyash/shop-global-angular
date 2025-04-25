@@ -1,0 +1,60 @@
+<div style="  margin: 0;
+font-family: 'Poppins', sans-serif;
+background-image: url(assets/sign\ up.jpg);
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;">
+  <div class="signup-container">
+    <h2>Create Your Account</h2>
+
+    <button class="google-btn" id="googleSignUpBtn">
+        <span class="google-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.23 1.54 7.66 2.83l5.63-5.63C33.4 3.29 28.98 1 24 1 14.92 1 7.35 6.7 4.5 14.26l6.86 5.34C12.81 13.36 17.91 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.5 24.5c0-1.63-.14-3.21-.41-4.72H24v9h12.7c-.55 2.87-2.18 5.28-4.68 6.9l7.36 5.7c4.3-3.97 6.72-9.83 6.72-16.88z"/>
+            <path fill="#FBBC05" d="M11.36 28.6c-1.17-3.42-1.17-7.14 0-10.56L4.5 12.7c-2.42 4.81-2.42 10.48 0 15.3l6.86-5.34z"/>
+            <path fill="#34A853" d="M24 46c6.51 0 12.03-2.16 16.04-5.87l-7.36-5.7c-2.06 1.38-4.68 2.2-8.68 2.2-6.09 0-11.19-3.86-12.64-9.1l-6.86 5.3C7.35 41.3 14.92 46 24 46z"/>
+          </svg>
+        </span>
+        Sign up with Google
+      </button>
+    <div class="divider"><span>or</span></div>
+    <form [formGroup]="signupForm" class="signup-form">
+        <div class="mb-3">
+          <input class="form-control" type="text" placeholder="Name" formControlName="name" />
+          <div class="error" *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.invalid">
+            Name is required.
+          </div>
+        </div>
+      
+        <div class="mb-3">
+          <input class="form-control" type="email" placeholder="Email" formControlName="email" />
+          <div class="error" *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']">
+            Email is required.
+          </div>
+          <div class="error" *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['email']">
+            Enter a valid email address.
+          </div>
+        </div>
+      
+        <div class="mb-3">
+          <input class="form-control" type="password" placeholder="Create Password" formControlName="password" />
+          <div class="error" *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">
+            Password is required.
+          </div>
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger mt-2">
+            {{ errorMessage }}
+          </div>
+          
+        <div class="mb-3 d-flex justify-content-center">
+          <button class="btn btn-primary signup-btn" type="button" (click)="onSubmit()">Sign Up</button>
+        </div>
+        <p class="login-text text-center">
+          Already have an account?  <a routerLink="/login">Login</a>
+        </p>
+      </form>
+  </div>
+
+</div>

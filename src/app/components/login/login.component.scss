@@ -1,0 +1,196 @@
+
+
+.login {
+    background: linear-gradient(120deg, #88CBE3, #F5EEFF);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+
+.login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    z-index: 2;
+   
+}
+
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #2E2C41;
+}
+
+.google-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.google-btn:hover {
+    background-color: #3367d6;
+}
+
+.divider {
+    margin: 20px 0;
+    text-align: center;
+    position: relative;
+}
+
+.divider span {
+    background: white;
+    padding: 0 10px;
+    color: #777;
+    font-size: 14px;
+}
+
+.divider::before, .divider::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 40%;
+    background: #ccc;
+    top: 50%;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.forgot-password a {
+    font-size: 13px;
+    color: #2E2C41;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #2E2C41;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #4B4967;
+}
+
+.signup-text {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.signup-text a {
+    color: #2E2C41;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff;
+    color: #444;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    box-shadow: 0 3px 9px rgba(0,0,0,0.1);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.google-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.google-logo path {
+    opacity: 0;
+    transform: scale(0.5);
+    transform-origin: center;
+    animation: googlePop 0.6s ease forwards;
+}
+
+.google-logo path:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.google-logo path:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.google-logo path:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.google-logo path:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes googlePop {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+.login-container img {
+    width: 200px;
+    margin-bottom: 20px;
+    animation: floatUp 1s ease-out forwards;
+    opacity: 0;
+  }
+  
+  @keyframes floatUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  
