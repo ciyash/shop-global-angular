@@ -11,6 +11,8 @@ export class BranchService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
+  // home
+
   CompanyBrands(): Observable<any> {
     return this.http.get(this.AUTH_API + '/api/company/get');
   }
@@ -23,12 +25,8 @@ export class BranchService {
     return this.http.get(`${this.AUTH_API}/api/product/subcategoryId/${id}`);
   }
 
-
-
-
   companyTopdeals(id:any){
     return this.http.get(`${this.AUTH_API}/api/product/companyId/${id}`);
-
   }
 
 

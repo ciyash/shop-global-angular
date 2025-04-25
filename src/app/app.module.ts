@@ -12,7 +12,6 @@ import { SignupComponent } from './components/signup/signup.component';
   declarations: [
     AppComponent,
     LoginComponent,
-  
     SignupComponent,
   ],
   imports: [
