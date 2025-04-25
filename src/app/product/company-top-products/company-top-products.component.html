@@ -1,0 +1,33 @@
+
+<app-header></app-header>
+<section class="hero-banner">
+    <img src="assets/topdelas/nike banner.svg" alt="nike banner" class="hero-image" />
+  </section>
+  
+    <!-- Virtual Address Section -->
+  <div class="virtual-address">
+    <img src="assets/topdelas/Nxt logst logo.svg" alt="Company Logo" class="logo" />
+    <p class="address-text">
+      6-1-91, Khairtabad Market Rd, Central Secretariat, Khairtabad, <br> Hyderabad, Telangana 500004
+    </p>
+    <button class="copy-btn" onclick="copyAddress()">Copy Address</button>
+    <span id="copy-message" class="copy-message"></span>
+  </div>
+  <div class="animated-bg">
+    <!-- Your content here -->
+  </div>
+  
+  <div class="product-grid" *ngFor="let items of cdata">
+    <a href="https://www.nike.com/in/?locale=en_IN&msockid=34e51fe517cd63fa24e00ac516186285" target="_blank">
+      <div class="pic">
+        <img src={{items.image}} alt="Nike Dunk Low Retro SE Men's Shoes" />
+        <div class="product-info">
+          <div class="product-name">{{items.productName}}</div>
+          <div class="product-color">1 Colour</div>
+          <div class="product-price">MRP: {{items.price}}</div>
+        </div>
+      </div>
+    </a>
+
+  <script src="script.js"></script>
+  <app-header></app-header>

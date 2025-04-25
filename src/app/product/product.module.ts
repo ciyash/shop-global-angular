@@ -7,6 +7,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HomeComponent } from '../components/home/home.component';
+import { CompanyTopProductsComponent } from './company-top-products/company-top-products.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HomeComponent } from '../components/home/home.component';
     CategoriesComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    CompanyTopProductsComponent
   ],
   imports: [
     CommonModule,
