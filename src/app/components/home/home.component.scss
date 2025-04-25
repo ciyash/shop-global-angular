@@ -700,8 +700,9 @@
       max-width: 1050px;
       margin: 60px auto;
       gap: 50px;
-      max-height: 400px;
+      max-height: 525px;
       animation: bgColorAnimation 4s ease infinite;
+     
     }
     
     @keyframes bgColorAnimation {
@@ -957,7 +958,7 @@
     
     .trending-scroll-wrapper {
       display: flex;
-      gap: 16px; 
+      gap: 10px; 
       overflow-x: auto;
       scroll-behavior: smooth;
       padding: 10px 0;
@@ -1099,7 +1100,7 @@
       border-radius: 12px;
       gap: 24px;
       max-width: 1200px;
-      height: 300px;
+      height: 400px;
       margin: 60px auto; 
       flex-wrap: wrap;
     }
@@ -1118,6 +1119,7 @@
     .wishlist-image img {
       width: 370px;   /* Slightly increased size */
       height: auto;
+      
     }
     
     .wishlist-text {
@@ -1718,6 +1720,7 @@
     }
   
    
+    
 
     
     

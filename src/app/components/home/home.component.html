@@ -37,7 +37,7 @@
     <div class="categories-wrapper" #scrollable>
       <div class="categories horizontal d-flex">
         <div class="category-item" >
-          <img src="assets/women wear.svg" alt="stores"   />
+          <img src="assets/women wear.svg" alt="stores" (click)="Getbrands()"  />
           <span>All Stores</span>
         </div>
         <div class="category-item" *ngFor="let item of categories">
@@ -83,7 +83,6 @@
  
   <div class="explore-fashion-wrapper">
     <div class="explore-text-block">
-      
       <div class="multi-style-heading">
         <span class="white-bg">LET’S</span><br />
         <span>EXPLORE</span><br />
@@ -98,8 +97,6 @@
       <img src="assets/lets explore-banner.svg" alt="Explore Clothes Banner" />
     </div>
   </div>
-
-
   <div class="brands image">
     <img src="assets/brands.svg" alt="brands">
   </div>
@@ -132,11 +129,11 @@
     <p>These styles are in everyone's cart</p>
   </div>
   <div class="trending-scroll-wrapper">
-    
     <div class="trending-product-card">
       <div class="product-image">
         <img src="assets/acne.svg" alt="Product 1" />
-        <span class="fav-icon"><i class="far fa-heart"></i></span>
+        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
+        </span>
       </div>
       <div class="product-info">
         <h3 class="product-name">Acne</h3>
@@ -148,8 +145,8 @@
     <div class="trending-product-card">
       <div class="product-image">
         <img src="assets/bueberry.svg" alt="Product 2" />
-        <span class="fav-icon"><i class="far fa-heart"></i></span>
-      </div>
+        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
+        </span>      </div>
       <div class="product-info">
         <h3 class="product-name">bueberry</h3>
         <p class="product-desc">Nice product description goes here</p>
@@ -160,8 +157,8 @@
     <div class="trending-product-card">
       <div class="product-image">
         <img src="assets/levis.svg" alt="Product 12" />
-        <span class="fav-icon"><i class="far fa-heart"></i></span>
-      </div>
+        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
+        </span>      </div>
       <div class="product-info">
         <h3 class="product-name">levis</h3>
         <p class="product-desc">Nice product description goes here</p>
@@ -172,8 +169,8 @@
     <div class="trending-product-card">
       <div class="product-image">
         <img src="assets/acne.svg" alt="Product 1" />
-        <span class="fav-icon"><i class="far fa-heart"></i></span>
-      </div>
+        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
+        </span>      </div>
       <div class="product-info">
         <h3 class="product-name">Acne</h3>
         <p class="product-desc">Nice product description goes here</p>
@@ -184,8 +181,8 @@
     <div class="trending-product-card">
       <div class="product-image">
         <img src="assets/bueberry.svg" alt="Product 2" />
-        <span class="fav-icon"><i class="far fa-heart"></i></span>
-      </div>
+        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
+        </span>      </div>
       <div class="product-info">
         <h3 class="product-name">bueberry</h3>
         <p class="product-desc">Nice product description goes here</p>
@@ -196,8 +193,8 @@
   <div class="trending-product-card">
       <div class="product-image">
         <img src="assets/levis.svg" alt="Product 12" />
-        <span class="fav-icon"><i class="far fa-heart"></i></span>
-      </div>
+        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
+        </span>      </div>
       <div class="product-info">
         <h3 class="product-name">levis</h3>
         <p class="product-desc">Nice product description goes here</p>
@@ -208,8 +205,8 @@
     <div class="trending-product-card">
       <div class="product-image">
         <img src="assets/acne.svg" alt="Product 1" />
-        <span class="fav-icon"><i class="far fa-heart"></i></span>
-      </div>
+        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
+        </span>      </div>
       <div class="product-info">
         <h3 class="product-name">Acne</h3>
         <p class="product-desc">Nice product description goes here</p>
@@ -220,8 +217,8 @@
     <div class="trending-product-card">
       <div class="product-image">
         <img src="assets/bueberry.svg" alt="Product 2" />
-        <span class="fav-icon"><i class="far fa-heart"></i></span>
-      </div>
+        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
+        </span>      </div>
       <div class="product-info">
         <h3 class="product-name">bueberry</h3>
         <p class="product-desc">Nice product description goes here</p>
@@ -232,8 +229,8 @@
   <div class="trending-product-card">
       <div class="product-image">
         <img src="assets/levis.svg" alt="Product 12" />
-        <span class="fav-icon"><i class="far fa-heart"></i></span>
-      </div>
+        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
+        </span>      </div>
       <div class="product-info">
         <h3 class="product-name">levis</h3>
         <p class="product-desc">Nice product description goes here</p>
@@ -246,22 +243,15 @@
    
   <div class="wishlist-banner">
     <div class="wishlist-image">
-      <img src="assets/whish-list banner.svg" alt="Wishlist Banner">
+      <img src="assets/whish-list banner.svg" alt="Wishlist Banner" >
     </div>
     <div class="wishlist-text">
       <h1>Create wish-lists across your favourite stores</h1>
       <p>Shop and save your favorite items with a single click. Plus, get price-drop alerts so you can buy at the perfect time.</p>
-      
-
-      
           <button>
             <span class="text"> start Wishlist</span>
             <span class="heart">💖</span>
-          </button>
-          
-
-        
-          >
+          </button>  
           <span class="sparkle" style="top: 80%; left: 30%; animation-delay: 0s;"></span>
           <span class="sparkle" style="top: 85%; left: 50%; animation-delay: 0.2s;"></span>
           <span class="sparkle" style="top: 90%; left: 70%; animation-delay: 0.4s;"></span>
@@ -280,64 +270,20 @@
   </section>
   
   <div class="brand-scroll-container">
-    <button class="brand-scroll-btn left" onclick="scrollLeft()">&#10094;</button>
-  
-    <div class="brand-scroll-wrapper" id="brand-scrollable">
-      <div class="brand-scroll-item">
-        <img src="assets/zara brand.svg" alt="Zara" />
-        <span>Zara</span>
+    <button class="brand-scroll-btn left" (click)="scrollBrandLeft()">&#10094;</button>
+    <div class="brand-scroll-wrapper" #topScrollable>
+      <div class="brand-scroll-item" *ngFor="let brand of brands">
+        <img [src]="brand.image" alt="brand.alt" (click)="TopBrandsid(brand._id)" />
+        <span>{{ brand.companyName }}</span>
       </div>
-      <div class="brand-scroll-item">
-        <img src="assets/H&m brand.svg" alt="H&M" />
-        <span>H&M</span>
-      </div>
-      <div class="brand-scroll-item">
-        <img src="assets/nike brand.svg" alt="nike" />
-        <span>Nike</span>
-      </div>
-      <div class="brand-scroll-item">
-        <img src="assets/lotus brand.svg" alt="lotus" />
-        <span>Lotus</span>
-      </div>
-      <div class="brand-scroll-item">
-        <img src="assets/henna brand.svg" alt="HENNA" />
-        <span>Henna</span>
-      </div>
-      <div class="brand-scroll-item">
-        <img src="assets/zara brand.svg" alt="Zara" />
-        <span>Zara</span>
-      </div>
-      <div class="brand-scroll-item">
-        <img src="assets/H&m brand.svg" alt="H&M" />
-        <span>H&M</span>
-      </div>
-      <div class="brand-scroll-item">
-        <img src="assets/nike brand.svg" alt="nike" />
-        <span>Nike</span>
-      </div>
-      <div class="brand-scroll-item">
-        <img src="assets/lotus brand.svg" alt="lotus" />
-        <span>Lotus</span>
-      </div>
-      <div class="brand-scroll-item">
-        <img src="assets/henna brand.svg" alt="HENNA" />
-        <span>Henna</span>
-      </div>
-      <div class="brand-scroll-item">
-        <img src="assets/lotus brand.svg" alt="lotus" />
-        <span>Lotus</span>
-      </div>
-      <div class=""></div>
     </div>
-
-    <button class="brand-scroll-btn right" onclick="scrollRight()">&#10095;</button>
+    <button class="brand-scroll-btn right" (click)="scrollBrandRight()">&#10095;</button>
   </div>
    
   <div class="review"> 
     <h1>What our customers say</h1>
-    
     <div class="rectangle">
-      
+
       <div class="review-card">
         <div class="stars">★★★★★</div>
 
