@@ -8,6 +8,7 @@ import { HeaderComponent } from '../components/header/header.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HomeComponent } from '../components/home/home.component';
 import { CompanyTopProductsComponent } from './company-top-products/company-top-products.component';
+import { DealsComponent } from './deals/deals.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CompanyTopProductsComponent } from './company-top-products/company-top-
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    CompanyTopProductsComponent
+    CompanyTopProductsComponent,
+    DealsComponent
   ],
   imports: [
     CommonModule,

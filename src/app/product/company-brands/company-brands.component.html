@@ -1,146 +1,97 @@
-
-
 <app-header></app-header>
-<div class="hero-section ">
-    <div class="top-rectangle">
-      <div class="steps-container">
-        <div class="step-box">
-          <h2>Step 1</h2>
-          <img src="assets/catertories/step-1.svg" alt="Step 1" class="step-img" />
-          <p class="address-text"> 6-1-91, Khairtabad Market Rd, Central Secretariat, Khairtabad, Hyderabad, Telangana
-            500004</p>
-          <button class="copy-btn" onclick="copyAddress()">Copy Address</button>
-        </div>
-        <!-- Step 2 -->
-        <div class="step-box">
-          <h2>Step 2</h2>
-          <img src="assets/catertories/step-2.svg" alt="Step 2" class="step-img large-img" />
-          <p>Purchase from 1000+ Indian online stores and add virtual locker address as delivery address</p>
-        </div>
-  
-        <!-- Step 3 -->
-        <div class="step-box">
-          <h2>Step 3</h2>
-          <img src="assets/catertories/step-3.svg" alt="Step 3" class="step-img large-img" />
-          <p>We will ship your products to your doorsteps in just 3 to 6 days!</p>
-        </div>
-      </div>
-  
-    </div>
-    <div class="hero-content">
-      <h1>Global Shipping from Your Favourite Indian Stores</h1>
-      <p>Explore top Indian online stores, shop freely, and get everything delivered in 3 simple steps</p>
-    </div>
-  </div>
-  
-  
-  <div class="banner">
-    <div class="banner-content">
-      <h1>YOUR FAVORITE STORES</h1>
-      <p>Discover the stuff you love at dozens of top stores with Shop Global</p>
-    </div>
-    <img src="assets/catertories/imagebanner.png" alt="Image" class="banner-image" />
-  </div>
-  
-  <div class="container">
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <div class="filter-header">
-        <h2>Filters</h2>
-        <input type="text" class="filter-search" placeholder="Search filters...">
-      </div>
-  
-      <div class="filter-section">
-        <button class="accordion">Category</button>
-        <div class="panel">
-          <label><input type="checkbox"> Men</label>
-          <label><input type="checkbox"> Women</label>
-          <label><input type="checkbox"> Beauty</label>
-          <label><input type="checkbox"> Health & Wellness</label>
-          <label><input type="checkbox"> Kids</label>
-          <label><input type="checkbox"> Home</label>
-  
-          <div class="sub-accordion">
-            <label class="sub-toggle">Electronics ▼</label>
-            <div class="sub-panel">
-              <label><input type="checkbox"> Mobiles</label>
-              <label><input type="checkbox"> TVs</label>
-              <label><input type="checkbox"> Laptops</label>
-              <label><input type="checkbox"> Smartwatches</label>
-            </div>
-          </div>
-  
-          <label><input type="checkbox"> Kitchen</label>
-          <label><input type="checkbox"> Footwear</label>
-          <label><input type="checkbox"> Fashion Accessories</label>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Product area -->
-    <div class="product-area">
-      <h2>Indian Stores</h2>
-      <div class="products-grid">
-        <div class="product-card" *ngFor="let brand of brands">
-          <a [href]="brand.companyUrl" target="_blank" rel="noopener noreferrer">
-            <img [src]="brand.image" [alt]="brand.companyName">
-          </a>
-          <h3>{{ brand.companyName }}</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  
-  <!-- 
-    <script>
-      document.querySelectorAll('.sub-toggle').forEach(toggle => {
-        toggle.addEventListener('click', () => {
-          const parent = toggle.closest('.sub-accordion');
-          parent.classList.toggle('open');
-        });
-      });
-    </script> -->
-  
-  
-  
-  
-  
-  
-  <!-- <script>
-      function copyAddress() {
-        const address = document.querySelector('.address-text').innerText;
-        navigator.clipboard.writeText(address).then(() => {
-          alert('Address copied!');
-        });
-      }
-    </script> -->
-  
-  
-  
-  
-    <app-footer></app-footer>
-    
-  
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+<div class="hero-section ">
+  <div class="top-rectangle">
+    <div class="steps-container">
+      <div class="step-box" *ngIf="Adata && Adata.length > 0">
+        <h2>Step 1</h2>
+        <img src="assets/catertories/step-1.svg" alt="Step 1" class="step-img" />
+        <p class="address-text">
+          {{Adata[0].houseNo}} {{Adata[0].address}} {{Adata[0].city}}
+        </p>
+        <p>{{Adata[0].pincode}}</p>
+        <button class="copy-btn" (click)="copyAddress()">Copy Address</button>
+      </div>
+      
+      <!-- Step 2 -->
+      <div class="step-box">
+        <h2>Step 2</h2>
+        <img src="assets/catertories/step-2.svg" alt="Step 2" class="step-img large-img" />
+        <p>Purchase from 1000+ Indian online stores and add virtual locker address as delivery address</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-box">
+        <h2>Step 3</h2>
+        <img src="assets/catertories/step-3.svg" alt="Step 3" class="step-img large-img" />
+        <p>We will ship your products to your doorsteps in just 3 to 6 days!</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="hero-content">
+    <h1>Global Shipping from Your Favourite Indian Stores</h1>
+    <p>Explore top Indian online stores, shop freely, and get everything delivered in 3 simple steps</p>
+  </div>
+</div>
+
+
+<div class="banner">
+  <div class="banner-content">
+    <h1>YOUR FAVORITE STORES</h1>
+    <p>Discover the stuff you love at dozens of top stores with Shop Global</p>
+  </div>
+  <img src="assets/catertories/imagebanner.png" alt="Image" class="banner-image" />
+</div>
+
+<div class="container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="filter-header">
+      <h2>Filters</h2>
+      <input type="text" class="filter-search" placeholder="Search filters...">
+    </div>
+
+    <div class="filter-section">
+      <button class="accordion">Category</button>
+      <div class="panel">
+        <span *ngFor="let items of cdata">
+          <label><input type="checkbox"> {{items.catName}}</label>
+        </span>
+
+        <div class="sub-accordion">
+          <label class="sub-toggle">Electronics ▼</label>
+          <div class="sub-panel">
+            <label><input type="checkbox"> Mobiles</label>
+            <label><input type="checkbox"> TVs</label>
+            <label><input type="checkbox"> Laptops</label>
+            <label><input type="checkbox"> Smartwatches</label>
+          </div>
+        </div>
+
+        <label><input type="checkbox"> Kitchen</label>
+        <label><input type="checkbox"> Footwear</label>
+        <label><input type="checkbox"> Fashion Accessories</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product area -->
+  <div class="product-area">
+    <h2>Indian Stores</h2>
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let brand of CompanyBrand">
+        <a [href]="brand.companyUrl" target="_blank" rel="noopener noreferrer">
+          <img [src]="brand.image" [alt]="brand.companyName">
+        </a>
+        <h3>{{ brand.companyName }}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<app-footer></app-footer>

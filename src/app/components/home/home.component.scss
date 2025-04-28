@@ -574,6 +574,7 @@
     justify-content: center;
   }
   
+  
   .brand-scroll-container:hover .brand-scroll-btn {
     opacity: 1;
     pointer-events: auto;
@@ -1540,7 +1541,7 @@
       top: 30px;
       text-align: left;
       display: inline-block;
-      margin: 0 12px;
+      margin: 43px 12px;
     }
     
     
@@ -1720,6 +1721,21 @@
     }
   
    
+    
+    .explore-fashion-wrapper[_ngcontent-ng-c1808421843] {
+      background-color: #F4F6F5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 80px;
+      border-radius: 12px;
+      max-width: 1200px;
+      margin: 60px auto;
+      gap: 50px;
+      max-height: 525px;
+      animation: _ngcontent-ng-c1808421843_bgColorAnimation 4s ease infinite;
+    }
+    
     
 
     

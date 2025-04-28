@@ -37,7 +37,7 @@
     <div class="categories-wrapper" #scrollable>
       <div class="categories horizontal d-flex">
         <div class="category-item" >
-          <img src="assets/women wear.svg" alt="stores" (click)="Getbrands()"  />
+          <img src="assets/women wear.svg" alt="stores" (click)="listStores()"  />
           <span>All Stores</span>
         </div>
         <div class="category-item" *ngFor="let item of categories">
@@ -57,7 +57,7 @@
   <div class="brand-scroll-container">
     <button class="brand-scroll-btn left" (click)="scrollBrandsLeft()">&#10094;</button>
     <div class="brand-scroll-wrapper" #brandScrollable>
-      <div class="brand-scroll-item" *ngFor="let brand of brands">
+      <div class="brand-scroll-item" *ngFor="let brand of CompanyBrand">
         <img [src]="brand.image" alt="brand.alt" (click)="TopBrandsid(brand._id)" />
         <span>{{ brand.companyName }}</span>
       </div>
@@ -97,10 +97,27 @@
       <img src="assets/lets explore-banner.svg" alt="Explore Clothes Banner" />
     </div>
   </div>
-  <div class="brands image">
-    <img src="assets/brands.svg" alt="brands">
+
+<div class="brand-scroll-container bg-light" style="height: 140px;" >
+  <!-- <button class="brand-scroll-btn left" (click)="scrollLeft()">&#10094;</button> -->
+  <div class="brand-scroll-wrapper" #scrollContainer style="    display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 20px;
+      padding: 10px 10px;
+      scroll-snap-type: x mandatory;
+      width: 93vw;
+      -ms-overflow-style: none;
+      scrollbar-width: none;">
+    <div class="brand-scroll-item" *ngFor="let datalogo of data">
+      <img [src]="datalogo.logo" alt="Logo"> 
+    </div>
   </div>
 
+  <!-- <button class="brand-scroll-btn right" (click)="scrollRight()">&#10095;</button> -->
+</div>
+
+  
   
   <div class="zara banner">
     <img src="assets/zara banner.svg" alt="zara">
@@ -116,131 +133,39 @@
         <span class="button-text">Shop Now</span>
         <span class="sparkle-effect"></span>
       </button>
-      
-
     </div>
   </div>
 
-
-  
-
+  <!-- top deals product -->
   <div class="Trending-deals">
-    <h1>Trending</h1>
+    <h1>Top deals</h1>
     <p>These styles are in everyone's cart</p>
   </div>
-  <div class="trending-scroll-wrapper">
-    <div class="trending-product-card">
-      <div class="product-image">
-        <img src="assets/acne.svg" alt="Product 1" />
-        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
-        </span>
+  <div class="container">  
+    <div class="product-scroll-container">
+      <button class="product-scroll-btn left" (click)="scrollProductsLeft()">&#10094;</button>
+  
+      <div class="product-scroll-wrapper" #productScrollable>
+        <div class="trending-product-card" *ngFor="let pdata of product">
+            <div class="product-image">
+              <img [src]="pdata.image" [alt]="pdata.name" />
+              <span class="fav-icon">
+                <i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
+              </span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">{{ pdata.productName }}</h3>
+              <p class="product-desc">{{ pdata.description }}</p>
+              <p class="product-price">{{ pdata.price }}</p>
+              <a href="#" class="view-detail"  >View Detail</a>
+            </div>
+         
+        </div>
       </div>
-      <div class="product-info">
-        <h3 class="product-name">Acne</h3>
-        <p class="product-desc">Nice product description goes here</p>
-        <p class="product-price">$234.00</p>
-        <a href="#" class="view-detail">View Detail</a>
-      </div>
+  
+      <button class="product-scroll-btn right" (click)="scrollProductsRight()">&#10095;</button>
     </div>
-    <div class="trending-product-card">
-      <div class="product-image">
-        <img src="assets/bueberry.svg" alt="Product 2" />
-        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
-        </span>      </div>
-      <div class="product-info">
-        <h3 class="product-name">bueberry</h3>
-        <p class="product-desc">Nice product description goes here</p>
-        <p class="product-price">$298.00</p>
-        <a href="#" class="view-detail">View Detail</a>
-      </div>
-    </div>
-    <div class="trending-product-card">
-      <div class="product-image">
-        <img src="assets/levis.svg" alt="Product 12" />
-        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
-        </span>      </div>
-      <div class="product-info">
-        <h3 class="product-name">levis</h3>
-        <p class="product-desc">Nice product description goes here</p>
-        <p class="product-price">$264.00</p>
-        <a href="#" class="view-detail">View Detail</a>
-      </div>
-    </div>
-    <div class="trending-product-card">
-      <div class="product-image">
-        <img src="assets/acne.svg" alt="Product 1" />
-        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
-        </span>      </div>
-      <div class="product-info">
-        <h3 class="product-name">Acne</h3>
-        <p class="product-desc">Nice product description goes here</p>
-        <p class="product-price">$234.00</p>
-        <a href="#" class="view-detail">View Detail</a>
-      </div>
-    </div>
-    <div class="trending-product-card">
-      <div class="product-image">
-        <img src="assets/bueberry.svg" alt="Product 2" />
-        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
-        </span>      </div>
-      <div class="product-info">
-        <h3 class="product-name">bueberry</h3>
-        <p class="product-desc">Nice product description goes here</p>
-        <p class="product-price">$298.00</p>
-        <a href="#" class="view-detail">View Detail</a>
-      </div>
-    </div>
-  <div class="trending-product-card">
-      <div class="product-image">
-        <img src="assets/levis.svg" alt="Product 12" />
-        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
-        </span>      </div>
-      <div class="product-info">
-        <h3 class="product-name">levis</h3>
-        <p class="product-desc">Nice product description goes here</p>
-        <p class="product-price">$264.00</p>
-        <a href="#" class="view-detail">View Detail</a>
-      </div>
-    </div>
-    <div class="trending-product-card">
-      <div class="product-image">
-        <img src="assets/acne.svg" alt="Product 1" />
-        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
-        </span>      </div>
-      <div class="product-info">
-        <h3 class="product-name">Acne</h3>
-        <p class="product-desc">Nice product description goes here</p>
-        <p class="product-price">$234.00</p>
-        <a href="#" class="view-detail">View Detail</a>
-      </div>
-    </div>
-    <div class="trending-product-card">
-      <div class="product-image">
-        <img src="assets/bueberry.svg" alt="Product 2" />
-        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
-        </span>      </div>
-      <div class="product-info">
-        <h3 class="product-name">bueberry</h3>
-        <p class="product-desc">Nice product description goes here</p>
-        <p class="product-price">$298.00</p>
-        <a href="#" class="view-detail">View Detail</a>
-      </div>
-    </div>
-  <div class="trending-product-card">
-      <div class="product-image">
-        <img src="assets/levis.svg" alt="Product 12" />
-        <span class="fav-icon"><i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
-        </span>      </div>
-      <div class="product-info">
-        <h3 class="product-name">levis</h3>
-        <p class="product-desc">Nice product description goes here</p>
-        <p class="product-price">$264.00</p>
-        <a href="#" class="view-detail">View Detail</a>
-      </div>
-      
-    </div>
-  </div> 
-   
+  </div>
   <div class="wishlist-banner">
     <div class="wishlist-image">
       <img src="assets/whish-list banner.svg" alt="Wishlist Banner" >
@@ -261,10 +186,10 @@
 
 
 
+    <!-- company To Brands -->
 
     <section class="top-deals-section">
-      <button class="see-btn">View All</button>
-
+      <button class="see-btn" >View All</button>
       <h1>Trending Stores</h1>
       <p>Discover the stores we're loving</p>
   </section>
@@ -272,54 +197,32 @@
   <div class="brand-scroll-container">
     <button class="brand-scroll-btn left" (click)="scrollBrandLeft()">&#10094;</button>
     <div class="brand-scroll-wrapper" #topScrollable>
-      <div class="brand-scroll-item" *ngFor="let brand of brands">
-        <img [src]="brand.image" alt="brand.alt" (click)="TopBrandsid(brand._id)" />
-        <span>{{ brand.companyName }}</span>
+      <div class="brand-scroll-item" *ngFor="let brand of TCompany">
+        <span > 
+          <img [src]="brand.image" [alt]="brand.alt" (click)="TopBrandsid(brand._id)" />
+          <span>{{ brand.companyName }}</span>
+        </span>
       </div>
     </div>
     <button class="brand-scroll-btn right" (click)="scrollBrandRight()">&#10095;</button>
   </div>
-   
-  <div class="review"> 
+  
+   <!-- end  -->
+   <div class="review">
     <h1>What our customers say</h1>
     <div class="rectangle">
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-
-        <h3>Amazing Service!</h3>
-        <p>I'm really impressed with the quality and speed. Highly recommend to everyone looking for reliable service.</p>
-        
-        <div class="customer">
-          <img src="https://i.pravatar.cc/50?img=5" alt="Customer Photo">
-          <span>Anusha</span>
+      <div class="review-card" *ngFor="let feed of feedbackdata | slice:0:3">
+        <div class="stars ">
+          <ng-container *ngFor="let star of [].constructor(feed.rating)">
+            <span class="filled">&#9733;</span>
+          </ng-container>
+        </div>
+        <h3 class="text-center">{{ feed.title }}</h3>
+        <p class="text-center">{{ feed.description }}</p>
+        <div class=" text-center">
+          <span >{{ feed.name }}</span>
         </div>
       </div>
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-
-        <h3>Amazing Service!</h3>
-        <p>I'm really impressed with the quality and speed. Highly recommend to everyone looking for reliable service.</p>
-        
-        <div class="customer">
-          <img src="https://i.pravatar.cc/50?img=5" alt="Customer Photo">
-          <span>Anusha</span>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-
-        <h3>Amazing Service!</h3>
-        <p>I'm really impressed with the quality and speed. Highly recommend to everyone looking for reliable service.</p>
-        
-        <div class="customer">
-          <img src="https://i.pravatar.cc/50?img=5" alt="Customer Photo">
-          <span>Anusha</span>
-        </div>
-      </div>
-
     </div>
   </div>
   
@@ -327,95 +230,163 @@
   
   
   
+  
+  
+<style>
 
+.review {
+  padding: 40px 20px;
+  text-align: center;
+}
 
+.review h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
 
+.rectangle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
 
-  
-  
-  
-  
- 
-  
-    
-  
-  
-  
+.review-card {
+  background-color: #fff;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
 
-  <!-- Script for Menu Toggle -->
-  <!-- <script>
-    function toggleMenu() {
-      const navLinks = document.getElementById("navLinks");
-      const toggle = document.getElementById("menuToggle");
+.review-card:hover {
+  transform: translateY(-5px);
+}
 
-      navLinks.classList.toggle("show");
+.stars {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: gold;
+}
 
-      toggle.innerHTML = navLinks.classList.contains("show") ? "&times;" : "&#9776;";
-    }
+.review-card h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        const navLinks = document.getElementById("navLinks");
-        const toggle = document.getElementById("menuToggle");
+.review-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
 
-        if (navLinks.classList.contains("show")) {
-          navLinks.classList.remove("show");
-          toggle.innerHTML = "&#9776;";
-        }
-      });
-    });
-  </script>
+.customer span {
+  font-weight: bold;
+  color: #333;
+}
 
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .review h1 {
+    font-size: 2rem;
+  }
 
-  
-  <script>
-    const button = document.getElementById('shopNowBtn');
-  
-    button.addEventListener('mouseenter', () => {
-      const interval = setInterval(() => {
-        const sparkle = document.createElement('div');
-        sparkle.classList.add('sparkle');
-  
-        const rect = button.getBoundingClientRect();
-        const x = Math.random() * rect.width;
-        const y = Math.random() * rect.height;
-  
-        sparkle.style.left = `${x}px`;
-        sparkle.style.top = `${y}px`;
-        sparkle.style.setProperty('--x', `${(Math.random() - 0.5) * 100}px`);
-        sparkle.style.setProperty('--y', `${(Math.random() - 0.5) * 100}px`);
-  
-        button.appendChild(sparkle);
-  
-        setTimeout(() => {
-          sparkle.remove();
-        }, 800);
-      }, 100);
-  
-      button._sparkleInterval = interval;
-    });
-  
-    button.addEventListener('mouseleave', () => {
-      clearInterval(button._sparkleInterval);
-    });
-  </script>
-  
-  
-  <script>
-    document.querySelectorAll('.fav-icon').forEach(icon => {
-      icon.addEventListener('click', function () {
-        const iTag = this.querySelector('i');
-  
-        if (iTag.classList.contains('far')) {
-          iTag.classList.remove('far');
-          iTag.classList.add('fas');
-          iTag.style.color = 'red';
-        } else {
-          iTag.classList.remove('fas');
-          iTag.classList.add('far');
-          iTag.style.color = '#888';
-        }
-      });
-    });
-  </script> -->
+  .review-card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .review h1 {
+    font-size: 1.8rem;
+  }
+
+  .stars {
+    font-size: 1.2rem;
+  }
+
+  .review-card {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .review-card h3 {
+    font-size: 1rem;
+  }
+
+  .review-card p {
+    font-size: 0.9rem;
+  }
+}
+
+.container {
+  max-width: 1400; 
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.product-scroll-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.product-scroll-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding: 10px 0;
+
+  /* ✅ Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+}
+
+.product-scroll-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.trending-product-card {
+  display: inline-block;
+  width: 250px;
+  margin: 10px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-scroll-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 2;
+  padding: 5px 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.product-scroll-btn.left {
+  left: 0;
+}
+
+.product-scroll-btn.right {
+  right: 0;
+}
+</style>
+
   <app-footer></app-footer>
