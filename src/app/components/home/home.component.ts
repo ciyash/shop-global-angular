@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   @ViewChild('topScrollable', { static: false }) topScrollable!: ElementRef;
   @ViewChild('productScrollable', { static: false }) productScrollable!: ElementRef;
   @ViewChild('scrollContainer', { static: false }) scrollContainer!: ElementRef;
+  @ViewChild('trending', { static: false }) trending!: ElementRef;
+
 
   product:any;
   brands:any
@@ -27,6 +29,7 @@ export class HomeComponent implements OnInit {
   allCompanyBrands: any;
   CompanyBrand: any;
   feedbackdata!: any[];
+  Topcompany: any;
 
 
   constructor(private api: BranchService, private router: Router) {}
@@ -39,6 +42,7 @@ export class HomeComponent implements OnInit {
     this.allCompany();
     this.CompanyTrending();
     this.feebback();
+    this.ToCompanyDeals();
   }
 
 
@@ -59,6 +63,18 @@ export class HomeComponent implements OnInit {
       state: { CompanyBrand: this.CompanyBrand }
     });
   }
+
+  ToCompanyDeals(){
+    this.api.GetTopCompany().subscribe({
+      next:(res:any)=>{
+        this.Topcompany=res;
+        console.log("topCompany:",this.Topcompany);
+      }
+    })
+  }
+
+
+
   
   // To Deals product
   TopDealsProduct() {
@@ -141,6 +157,19 @@ feebback(){
 }
 
 
+
+details(id: number) {
+  console.log("productid:",id);
+  this.router.navigate(['/products/productDetails', id]);
+}
+
+isFavorite = false;
+
+toggleFavorite(id:number) {
+  this.isFavorite = !this.isFavorite;
+}
+
+
 scrollLeft() {
   this.scrollContainer.nativeElement.scrollBy({ left: -200, behavior: 'smooth' });
 }
@@ -189,10 +218,20 @@ scrollProductsRight() {
 scrollReviewLeft() {
   this.reviewScrollable.nativeElement.scrollBy({ left: -300, behavior: 'smooth' });
 }
-
 scrollReviewRight() {
   this.reviewScrollable.nativeElement.scrollBy({ left: 300, behavior: 'smooth' });
 }
+
+// trending bottom
+
+scrolltrendLeft() {
+  this.trending.nativeElement.scrollBy({ left: -300, behavior: 'smooth' });
+}
+
+scrolltrendsRight() {
+  this.trending.nativeElement.scrollBy({ left: 300, behavior: 'smooth' });
+}
+
 
 
 

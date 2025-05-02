@@ -1,19 +1,8 @@
 
   
 
-  .hero-banner {
-    width: 100%;
-    overflow: hidden;
-    margin-top: 128px; /* push below header */
-  }
-  
-  .hero-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    max-height: 600px;
-  }
+
+
   
 
   /* Virtual Address Section */
@@ -397,4 +386,7 @@
     color: red;
     font-size: 16px;
     margin-right: 5px;
+  }
+  .product-details{
+    cursor: pointer;
   }

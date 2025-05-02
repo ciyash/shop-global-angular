@@ -1,105 +1,366 @@
 <app-header></app-header>
-  <div class="container-fluid" style="background: url('assets/hero-section.png') no-repeat center center / cover;">
-    <section class="hero-section container" style="padding-top: 180px;">
-      <div class="hero-inner">
-        <div class="hero-text">
-          <div class="tick-box-inline">
-            <div><span class="tick">✓</span> Doorstep Delivery</div>
-            <div><span class="tick">✓</span> Trusted Professionals</div>
-            <div><span class="tick">✓</span> 24/7 Support</div>
-          </div>
-          <h1>
-            Everything You Need, All in One Place of
-            <span class="highlight">FAVORITE SHOP</span>
-          </h1>
-          
-          <p>From clothes to pickles, sweets to skincare – shop it all here...</p>
-          <div class="hero-buttons">
-            <a href="#" class="btn primary">Shop collection</a>
-            <a href="#" class="btn secondary">Contact</a>
-          </div>
+<div class="container-fluid p-0 " style="background: url('assets/hero-section.png') no-repeat center center / cover; ">
+  <section class="hero-section container py-5">
+    <div class="row align-items-center">
+      <!-- Text Content -->
+      <div class="col-lg-6 col-md-12 mb-4 mb-lg-0 text-center text-lg-start">
+        <div class="tick-box-inline d-flex flex-wrap justify-content-center justify-content-lg-start mb-3">
+          <div class="me-3 mb-2"><span class="tick">✓</span> Doorstep Delivery</div>
+          <div class="me-3 mb-2"><span class="tick">✓</span> Trusted Professionals</div>
+          <div class="mb-2"><span class="tick">✓</span> 24/7 Support</div>
         </div>
-        <div class="hero-image">
-          <img src="assets/hero banner.svg" alt="Hero" />
+        <h1 class="fw-bold">
+          Everything You Need, All in One Place of
+          <span class="highlight text-primary">FAVORITE SHOP</span>
+        </h1>
+        <p class="mt-3">From clothes to pickles, sweets to skincare – shop it all here...</p>
+        <div class="hero-buttons mt-4">
+          <a routerLink="/products/deals" class="btn btn-primary me-2">Shop collection</a>
+          <a routerLink="/products/contactus" class="btn btn-outline-secondary">Contact</a>
         </div>
       </div>
-    </section>
-  </div>
-  
 
-
-
-<!-- llll   -->
-  
-
-  <div class="scroll-container">
-    <button class="scroll-btn left" (click)="scrollCategoriesLeft()">&#10094;</button>
-    <div class="categories-wrapper" #scrollable>
-      <div class="categories horizontal d-flex">
-        <div class="category-item" >
-          <img src="assets/women wear.svg" alt="stores" (click)="listStores()"  />
-          <span>All Stores</span>
-        </div>
-        <div class="category-item" *ngFor="let item of categories">
-          <img [src]="item.image" [alt]="item.alt" (click)="getId(item._id)" />
-          <span>{{ item.subCategoryName }}</span>
-        </div>
+      <!-- Hero Image -->
+      <div class="col-lg-6 col-md-12 text-center">
+        <img src="assets/hero banner.svg" alt="Hero" class="img-fluid" />
       </div>
     </div>
-    <button class="scroll-btn right" (click)="scrollCategoriesRight()">&#10095;</button>
-  </div>
-  
-  <section class="top-deals-section">
-      <h1>Top Deals</h1>
-      <p>Shop the most popular deals from your favourite brands</p>
   </section>
+</div>
+<style>
+  .tick {
+    color: green;
+    font-weight: bold;
+    margin-right: 5px;
+  }
 
-  <div class="brand-scroll-container">
-    <button class="brand-scroll-btn left" (click)="scrollBrandsLeft()">&#10094;</button>
-    <div class="brand-scroll-wrapper" #brandScrollable>
-      <div class="brand-scroll-item" *ngFor="let brand of CompanyBrand">
-        <img [src]="brand.image" alt="brand.alt" (click)="TopBrandsid(brand._id)" />
-        <span>{{ brand.companyName }}</span>
+  .highlight {
+    color: #ff6600;
+  }
+
+  .tick-box-inline div {
+    font-size: 1rem;
+  }
+</style>
+
+
+
+
+
+
+<div class="scroll-container position-relative">
+  <button class="scroll-btn left d-none d-md-block" (click)="scrollCategoriesLeft()">&#10094;</button>
+  <div class="categories-wrapper overflow-auto" #scrollable>
+    <div class="categories d-flex flex-nowrap">
+      <!-- Static Category Item -->
+      <div class="category-item text-center me-3">
+        <img src="assets/women wear.svg" alt="stores" (click)="listStores()" />
+        <span>All Stores</span>
+      </div>
+      <!-- Dynamic Category Items -->
+      <div class="category-item text-center me-3" *ngFor="let item of categories">
+        <img [src]="item.image" [alt]="item.alt" (click)="getId(item._id)" />
+        <span>{{ item.subCategoryName }}</span>
       </div>
     </div>
-    <button class="brand-scroll-btn right" (click)="scrollBrandsRight()">&#10095;</button>
   </div>
-  
-    
 
-  <div class="selling-online">
-    <img src="assets/start selling online.svg" alt="selling online" />
-  
-    <!-- Floating SG logo -->
-    <img src="assets/S.G logo.png" alt="SG Logo" class="sg-logo" />
+  <!-- Right Scroll Button -->
+  <button class="scroll-btn right d-none d-md-block" (click)="scrollCategoriesRight()">&#10095;</button>
+</div>
 
-    
-    <div class="text-overlay">
-      <h1>Start selling online.</h1>
-      <p>Take your business online with Shop Global. Get your free online store in 30 seconds.</p>
-      <button class="get-started-btn">Get started</button>
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h1 class="fw-bold mx-5">Top Deals</h1>
+    <a routerLink="/products/deals">
+      <h6 class="mt-3">View All<span style="color: red; size: 16px;"></span></h6>
+    </a>
+  </div>
+  <p class="mx-5 popular">Shop the most popular deals from your favourite brands</p>
+</div>
+<div class="brand-scroll-container">
+  <button class="brand-scroll-btn left" (click)="scrollBrandsLeft()">&#10094;</button>
+  <div class="brand-scroll-wrapper" #brandScrollable>
+
+    <div class="brand-scroll-item" *ngFor="let brand of Topcompany">
+      <a [href]="brand.companyUrl" target="_blank">
+        <img [src]="brand.image" [alt]="brand.companyName" />
+      </a>
+      <span class="fw-bold">{{ brand.companyName }}</span>
+
     </div>
   </div>
- 
-  <div class="explore-fashion-wrapper">
-    <div class="explore-text-block">
-      <div class="multi-style-heading">
-        <span class="white-bg">LET’S</span><br />
-        <span>EXPLORE</span><br />
-        <span class="yellow-bg">UNIQUE</span>
-        <h1 class="highlight-text">CLOTHES</h1>
+  <button class="brand-scroll-btn right " (click)="scrollBrandsRight()">&#10095;</button>
+</div>
+
+
+<style>
+  .selling-online {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: clamp(16px, 2.5vw, 18px);
+  }
+
+  .selling-online img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .selling-online .sg-logo {
+    position: absolute;
+    top: 5vw;
+    /* Relative to viewport */
+    right: 5vw;
+    width: clamp(150px, 20vw, 200px);
+    /* Responsive logo size */
+    height: auto;
+    z-index: 10;
+    animation: pulse 1.5s infinite ease-in-out, fadeIn 1s ease-in 0.5s;
+  }
+
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    /* Align to the left side of the image */
+    transform: translateY(-50%);
+    /* Center vertically */
+    color: #000;
+    padding: clamp(20px, 5vw, 40px);
+    /* Responsive padding */
+    border-radius: 0 10px 10px 0;
+    /* Rounded corners on right side */
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+    /* Left-align text */
+    width: 50%;
+    /* Occupy half the image width */
+    max-width: 600px;
+    /* Limit max width */
+    z-index: 5;
+  }
+
+  .text-overlay h1 {
+    font-size: clamp(24px, 5vw, 36px);
+    /* Responsive heading size */
+    font-weight: bold;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+  }
+
+  .text-overlay p {
+    margin: 0;
+    color: #000;
+    opacity: 0.6;
+    font-size: clamp(14px, 2.5vw, 18px);
+    /* Responsive paragraph size */
+  }
+
+  .get-started-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px);
+    font-size: clamp(14px, 2vw, 16px);
+    font-family: 'Poppins', sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+
+  .get-started-btn:hover {
+    background-color: #333;
+  }
+
+  /* Animation keyframes */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.05);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /* Media Queries for additional responsiveness */
+  @media (max-width: 768px) {
+    .selling-online .sg-logo {
+      top: 3vw;
+      right: 3vw;
+      width: clamp(100px, 15vw, 150px);
+    }
+
+    .text-overlay {
+      padding: 20px;
+      width: 70%;
+      /* Increase width for better readability on tablets */
+    }
+
+    .text-overlay h1 {
+      font-size: clamp(20px, 6vw, 28px);
+    }
+
+    .text-overlay p {
+      font-size: clamp(12px, 3vw, 16px);
+    }
+
+    .get-started-btn {
+      padding: 10px 25px;
+      font-size: clamp(12px, 2.5vw, 14px);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .selling-online {
+      font-size: 14px;
+      margin-top: 30px;
+    }
+
+
+    .selling-online .sg-logo {
+      top: 10px;
+      right: 10px;
+      width: 100px;
+    }
+
+    .text-overlay {
+      top: 50%;
+      padding: 10px;
+      width: 85%;
+      /* Use most of the width on small screens */
+    }
+
+    .text-overlay h1 {
+      margin-bottom: 10px;
+      font-size: clamp(18px, 5.5vw, 24px);
+    }
+
+    .text-overlay p {
+      font-size: clamp(12px, 3.5vw, 14px);
+    }
+
+    .get-started-btn {
+      /* padding: 8px 20px;
+      font-size: 13px; */
+
+      padding: 6px 23px;
+      font-size: 4px;
+    }
+
+  }
+</style>
+
+
+
+
+<div class="selling-online">
+  <img src="assets/start selling online.svg" alt="selling online" />
+  <img src="assets/S.G logo.png" alt="SG Logo" class="sg-logo" />
+  <div class="text-overlay">
+    <h1 class="start">Start selling online.</h1>
+    <p>Take your business online with Shop Global. Get your free online store in 30 seconds.</p>
+    <button class="get-started-btn">Get started</button>
+  </div>
+</div>
+
+
+<div class="container  Stores mt-4 mb-5" style="background-color: #ffc107;  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: clamp(16px, 2.5vw, 18px); border-radius: 8px;">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mt-5">
+        <h1 class="mx-5 EXPLORE ">LET’S
+        </h1>
+        <h1 class=" mx-5 EXPLORE">EXPLORE
+        </h1>
+        <h1 class=" EXPLORE mx-5 yellow-bg">UNIQUE</h1>
+        <h1 class="mx-5 EXPLORE">
+          CLOTHES.
+        </h1>
+        <p class="mx-5">Live for Influential and Innovative fashion!</p>
+        <button class="explore-shop-btn mx-5">Shop Now</button>
+
       </div>
-      <p>Live for Influential and Innovative fashion!</p>
-      <button class="explore-shop-btn">Shop Now</button>
+
     </div>
-  
-    <div class="explore-image-block">
-      <img src="assets/lets explore-banner.svg" alt="Explore Clothes Banner" />
+    <div class="col-md-6">
+      <img src="assets/lets explore-banner.svg" alt="Explore Clothes Banner" class="img-fluid  " />
     </div>
   </div>
 
-<div class="brand-scroll-container bg-light" style="height: 140px;" >
-  <!-- <button class="brand-scroll-btn left" (click)="scrollLeft()">&#10094;</button> -->
+</div>
+
+
+<style>
+  .EXPLORE {
+    font-size: 48px;
+    font-weight: 900;
+  }
+
+  .Stores {
+    animation: bgCycle 8s infinite;
+  }
+
+  @keyframes bgCycle {
+    0% {
+      background-color: #F5F4F4;
+    }
+
+    25% {
+      background-color: #A7C7E7;
+    }
+
+    50% {
+      background-color: #F4F6F5;
+    }
+
+    75% {
+      background-color: #c456aa;
+    }
+
+    100% {
+      background-color: #F5F4F4;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .img-fluid {
+      margin-left: -40px;
+      height: auto;
+    }
+
+    .EXPLORE {
+      margin-left: 100px;
+    }
+  }
+</style>
+
+
+
+
+<div class="brand-scroll-container bg-light" style="height: 140px;">
   <div class="brand-scroll-wrapper" #scrollContainer style="    display: flex;
       overflow-x: auto;
       scroll-behavior: smooth;
@@ -110,283 +371,241 @@
       -ms-overflow-style: none;
       scrollbar-width: none;">
     <div class="brand-scroll-item" *ngFor="let datalogo of data">
-      <img [src]="datalogo.logo" alt="Logo"> 
+      <img [src]="datalogo.logo" alt="Logo">
     </div>
   </div>
 
-  <!-- <button class="brand-scroll-btn right" (click)="scrollRight()">&#10095;</button> -->
 </div>
 
-  
-  
-  <div class="zara banner">
-    <img src="assets/zara banner.svg" alt="zara">
-    <div class="text-content">
-      <h1><span class="payday-box">PAYDAY</span> SALE NOW</h1>
-
-      <p>Spend minimal $100 get 30% off voucher 
-         code for your next purchase</p>
-      <h2>11 April - 10 April 2025</h2>
-      <p class="Terms"><i>*Terms & Conditions apply</i></p>
-      
-      <button class="sparkle-button">
-        <span class="button-text">Shop Now</span>
-        <span class="sparkle-effect"></span>
-      </button>
-    </div>
-  </div>
-
-  <!-- top deals product -->
-  <div class="Trending-deals">
-    <h1>Top deals</h1>
-    <p>These styles are in everyone's cart</p>
-  </div>
-  <div class="container">  
-    <div class="product-scroll-container">
-      <button class="product-scroll-btn left" (click)="scrollProductsLeft()">&#10094;</button>
-  
-      <div class="product-scroll-wrapper" #productScrollable>
-        <div class="trending-product-card" *ngFor="let pdata of product">
-            <div class="product-image">
-              <img [src]="pdata.image" [alt]="pdata.name" />
-              <span class="fav-icon">
-                <i class="fa fa-heart-o" aria-hidden="true" style="color: black;"></i>
-              </span>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">{{ pdata.productName }}</h3>
-              <p class="product-desc">{{ pdata.description }}</p>
-              <p class="product-price">{{ pdata.price }}</p>
-              <a href="#" class="view-detail"  >View Detail</a>
-            </div>
-         
-        </div>
-      </div>
-  
-      <button class="product-scroll-btn right" (click)="scrollProductsRight()">&#10095;</button>
-    </div>
-  </div>
-  <div class="wishlist-banner">
-    <div class="wishlist-image">
-      <img src="assets/whish-list banner.svg" alt="Wishlist Banner" >
-    </div>
-    <div class="wishlist-text">
-      <h1>Create wish-lists across your favourite stores</h1>
-      <p>Shop and save your favorite items with a single click. Plus, get price-drop alerts so you can buy at the perfect time.</p>
-          <button>
-            <span class="text"> start Wishlist</span>
-            <span class="heart">💖</span>
-          </button>  
-          <span class="sparkle" style="top: 80%; left: 30%; animation-delay: 0s;"></span>
-          <span class="sparkle" style="top: 85%; left: 50%; animation-delay: 0.2s;"></span>
-          <span class="sparkle" style="top: 90%; left: 70%; animation-delay: 0.4s;"></span>
-        </div>
-    </div>
 
 
 
 
-    <!-- company To Brands -->
+<div class="container"  style="background-color: #E2A3A9;
 
-    <section class="top-deals-section">
-      <button class="see-btn" >View All</button>
-      <h1>Trending Stores</h1>
-      <p>Discover the stores we're loving</p>
-  </section>
-  
-  <div class="brand-scroll-container">
-    <button class="brand-scroll-btn left" (click)="scrollBrandLeft()">&#10094;</button>
-    <div class="brand-scroll-wrapper" #topScrollable>
-      <div class="brand-scroll-item" *ngFor="let brand of TCompany">
-        <span > 
-          <img [src]="brand.image" [alt]="brand.alt" (click)="TopBrandsid(brand._id)" />
-          <span>{{ brand.companyName }}</span>
-        </span>
-      </div>
-    </div>
-    <button class="brand-scroll-btn right" (click)="scrollBrandRight()">&#10095;</button>
-  </div>
-  
-   <!-- end  -->
-   <div class="review">
-    <h1>What our customers say</h1>
-    <div class="rectangle">
-      <div class="review-card" *ngFor="let feed of feedbackdata | slice:0:3">
-        <div class="stars ">
-          <ng-container *ngFor="let star of [].constructor(feed.rating)">
-            <span class="filled">&#9733;</span>
-          </ng-container>
-        </div>
-        <h3 class="text-center">{{ feed.title }}</h3>
-        <p class="text-center">{{ feed.description }}</p>
-        <div class=" text-center">
-          <span >{{ feed.name }}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  
-  
-  
-  
-  
-  
-<style>
-
-.review {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.review h1 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-}
-
-.rectangle {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.review-card {
-  background-color: #fff;
-  padding: 20px;
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.review-card:hover {
-  transform: translateY(-5px);
-}
-
-.stars {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-  font-size: 1.5rem;
-  color: gold;
-}
-
-.review-card h3 {
-  font-size: 1.2rem;
-  margin: 10px 0;
-}
-
-.review-card p {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 15px;
-}
-
-.customer span {
-  font-weight: bold;
-  color: #333;
-}
-
-/* Responsive for smaller screens */
-@media (max-width: 768px) {
-  .review h1 {
-    font-size: 2rem;
-  }
-
-  .review-card {
-    width: 90%;
-  }
-}
-
-@media (max-width: 480px) {
-  .review h1 {
-    font-size: 1.8rem;
-  }
-
-  .stars {
-    font-size: 1.2rem;
-  }
-
-  .review-card {
-    width: 100%;
-    padding: 15px;
-  }
-
-  .review-card h3 {
-    font-size: 1rem;
-  }
-
-  .review-card p {
-    font-size: 0.9rem;
-  }
-}
-
-.container {
-  max-width: 1400; 
+    position: relative;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px;
-}
+  font-size: clamp(16px, 2.5vw, 18px); border-radius: 8px;">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="assets/banner/Group 1272628857.svg" alt="" class="img-fluid">
+    </div>
+    <div class="col-md-6">
+      <h1 class=" PAYDAY mx-5 mt-5">PAYDAY</h1>
+      <h1 class="mx-5 SALE mx-3">SALE NOW</h1>
+      <p class="mx-5" style="font-family: Poppins;
+      font-weight: 500;
+      font-size: 17.48px;
+      line-height: 25.38px;
+      letter-spacing: -2%;
+      ">Spend minimal $100 get 30% off voucher code for your next purchase</p>
+      <h2 class="mx-5" style="font-family: Poppins;
+      font-weight: 700;
+      font-size: 17.48px;
+      line-height: 25.38px;
+      letter-spacing: 2%;
+      ">11 April - 10 April 2025</h2>
+      <p class="mx-5" style="font-family: Poppins;
+      font-weight: 400;
+      font-size: 17.48px;
+      line-height: 25.38px;
+      letter-spacing: -2%;
+      "><i>*Terms & Conditions apply</i></p>
+      <div class="mx-5">
+        <button class="btn Now text-center mt-5">Shop Now</button>
 
-.product-scroll-container {
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+<!-- top deals product -->
+<div class="container mt-5">
+  <h1 class="fw-bold mx-5">Top deals</h1>
+  <p class="mx-5 mb-3 ">These styles are in everyone's cart</p>
+</div>
+
+<div class="brand-scroll-container">
+  <button class="brand-scroll-btn left" (click)="scrollBrandLeft()">&#10094;</button>
+  <div class="brand-scroll-wrapper" #topScrollable>
+    <div class="brand-scroll-item "
+         *ngFor="let brand of product">
+      <span>
+        <img [src]="brand.image" [alt]="brand.alt" (click)="details(brand._id)" class="img-fluid" />
+        <span>{{ brand.companyName }}</span>
+        <h3 class="product-name mt-2 mx-2">{{ brand.companyId.companyName }}</h3>
+      </span>
+      <p class="product-desc mx-2">{{ brand.description }}</p>
+      <p class="product-price mx-2">&#8377;{{ brand.price }}</p>
+      <p class="product-details mx-2 fw-bold" (click)="details(brand._id)" style="color: rgb(41, 39, 39);">
+        View Detail
+      </p>
+    </div>
+  </div>
+
+  <button class="brand-scroll-btn right " (click)="scrollBrandRight()">&#10095;</button>
+</div>
+<style>
+  .brand-scroll-container {
   position: relative;
   display: flex;
   align-items: center;
+  overflow: hidden;
+  width: 100%;
 }
 
-.product-scroll-wrapper {
+.brand-scroll-wrapper {
+  display: flex;
   overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
   scroll-behavior: smooth;
-  width: 100%;
-  padding: 10px 0;
-
-  /* ✅ Hide scrollbar */
-  scrollbar-width: none; /* Firefox */
+  gap: 1rem;
+  padding: 1rem;
 }
 
-.product-scroll-wrapper::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
+.brand-scroll-wrapper::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for webkit browsers */
 }
 
-.trending-product-card {
-  display: inline-block;
-  width: 250px;
-  margin: 10px;
-  background: #f9f9f9;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.brand-scroll-item {
+  flex: 0 0 auto;
+  width: 200px;
+  min-width: 180px;
+  max-width: 240px;
+  border-radius: 0.5rem;
+  transition: transform 0.2s;
 }
 
-.product-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
+.brand-scroll-item:hover {
+  transform: scale(1.03);
 }
 
-.product-scroll-btn {
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  background: white;
+.brand-scroll-btn {
+  background-color: rgba(0,0,0,0.1);
   border: none;
-  font-size: 28px;
+  font-size: 2rem;
   cursor: pointer;
-  z-index: 2;
-  padding: 5px 10px;
-  border-radius: 50%;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  padding: 0 0.5rem;
+  z-index: 10;
+  
 }
 
-.product-scroll-btn.left {
-  left: 0;
+.brand-scroll-btn.left {
+  position: absolute;
+  left: 130px;
+  background-color: #000;
 }
 
-.product-scroll-btn.right {
-  right: 0;
+.brand-scroll-btn.right {
+  position: absolute;
+  right: 100px;
+  background-color: #000;
+
 }
+
+@media (max-width: 768px) {
+  .brand-scroll-item {
+    width: 160px;
+  }
+}
+
+@media (max-width: 576px) {
+  .brand-scroll-item {
+    width: 140px;
+  }
+}
+
 </style>
 
-  <app-footer></app-footer>
+<div class="wishlist-banner">
+  <div class="wishlist-image">
+    <img src="assets/whish-list banner.svg" alt="Wishlist Banner">
+  </div>
+  <div class="wishlist-text">
+    <h1>Create wish-lists across your favourite stores</h1>
+    <p>Shop and save your favorite items with a single click. Plus, get price-drop alerts so you can buy at the perfect
+      time.</p>
+    <button>
+      <span class="text"> start Wishlist</span>
+      <span class="heart">💖</span>
+    </button>
+    <span class="sparkle" style="top: 80%; left: 30%; animation-delay: 0s;"></span>
+    <span class="sparkle" style="top: 85%; left: 50%; animation-delay: 0.2s;"></span>
+    <span class="sparkle" style="top: 90%; left: 70%; animation-delay: 0.4s;"></span>
+  </div>
+</div>
+<!-- company To Brands -->
+<div class="container">
+  <div class="d-flex justify-content-between mx-5">
+    <h1 class="fw-bold ">Trending Stores</h1>
+    <a routerLink="/products/deals">
+      <h6 class="mt-3" >View All<span style="color: red; size: 16px;"></span></h6>
+    </a>  </div>
+  <p class="mx-5">Discover the stores we're loving</p>
+</div>
+
+
+<div class="brand-scroll-container">
+  <button class="brand-scroll-btn left" (click)="scrolltrendLeft()">&#10094;</button>
+  <div class="brand-scroll-wrapper" #trending>
+    <div class="brand-scroll-item" *ngFor="let brand of TCompany">
+
+      <!-- <a [href]="brand.companyUrl" target="_blank">
+        <img [src]="brand.image" [alt]="brand.companyName" />
+      </a> -->
+      <span>
+      <a [href]=" brand.companyUrl">
+        <img [src]="brand.image" [alt]="brand.alt" />
+
+      </a>
+        <span class="mx-4">{{ brand.companyName }}</span>
+      </span>
+    </div>
+  </div>
+  <button class="brand-scroll-btn right" (click)="scrolltrendsRight()">&#10095;</button>
+</div>
+
+<!-- end  -->
+
+
+
+
+
+
+
+<div class="d-flex justify-content-center mb-3">
+  <h3 class="fw-bold">What our customers say</h3>
+</div>
+<div class="container mb-5 p-5" style="background-color: #E4DED6; border-radius: 8px; ">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let feed of feedbackdata | slice:0:3">
+      <div class="card  border" style="background-color: #fff;border-radius: 8px;">
+        <div class="card-body">
+          <div class="stars">
+            <ng-container *ngFor="let star of [].constructor(feed.rating)">
+              <span class="filled">&#9733;</span>
+            </ng-container>
+          </div>
+          <h5 class="card-title">{{feed.title }}</h5>
+          <p class="card-text">{{feed.description}}</p>
+          <span>{{ feed.name }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .stars {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: gold;
+  }
+</style>
+
+<app-footer></app-footer>

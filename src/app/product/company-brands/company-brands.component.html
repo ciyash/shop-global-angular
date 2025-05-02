@@ -1,84 +1,118 @@
 <app-header></app-header>
+<div class="container-fluid" style="background-color: #88CBE3; ">
+  <div class="row">
+    <div class="col-md-6 ">
+      <div class="text-center mt-5">
+        <h1 class="mt-5 fw-bold " style="font-family: Poppins;
+        font-weight: 400;
+        font-size: 56px;
+        line-height: 70px;
+        letter-spacing: -0.88px;
+        text-transform: uppercase;
+        ">YOUR FAVORITE <br> STORES</h1>
+        <p class="mt-5" style="font-family: Poppins;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: -0.01px;
+        ">Discover the stuff you love at dozens of top stores with Shop Global</p>
+      </div>
+    
+    </div>
+    <div class="col-md-6">
+      <img src="assets/catertories/imagebanner.png" alt="Image" class="img-fluid" />
+
+    </div>
+  </div>
+</div>
 
 
-
-<div class="hero-section ">
-  <div class="top-rectangle">
-    <div class="steps-container">
-      <div class="step-box" *ngIf="Adata && Adata.length > 0">
-        <h2>Step 1</h2>
-        <img src="assets/catertories/step-1.svg" alt="Step 1" class="step-img" />
+<div class="container p-5 mt-5 mb-4" style="background-color: #C2D8FF;border-radius: 16px;">
+  <div class="row">
+    <div class="col-md-4">
+      <h5 class="text-center">step-1</h5>
+      <div class="text-center">
+        <img src="assets/catertories/step-1.svg" alt="Step 1" class="img-fluid " />
         <p class="address-text">
           {{Adata[0].houseNo}} {{Adata[0].address}} {{Adata[0].city}}
         </p>
         <p>{{Adata[0].pincode}}</p>
         <button class="copy-btn" (click)="copyAddress()">Copy Address</button>
       </div>
-      
-      <!-- Step 2 -->
-      <div class="step-box">
-        <h2>Step 2</h2>
-        <img src="assets/catertories/step-2.svg" alt="Step 2" class="step-img large-img" />
-        <p>Purchase from 1000+ Indian online stores and add virtual locker address as delivery address</p>
+    </div>
+    <div class="col-md-4">
+      <h5 class="text-center">step-2</h5>
+      <div class="text-center">
+        <img src="assets/catertories/step-2.svg" alt="Step 1" class="img-fluid " />
+        <p class="address-text">
+          Purchase from 1000+ Indian online stores and add virtual locker address as delivery address        </p>
       </div>
+    </div>
+    <div class="col-md-4">
+      <h5 class="text-center">step-3</h5>
+      <div class="text-center">
+        <img src="assets/catertories/step-3.svg" alt="Step 1" class="img-fluid " />
+        <p class="address-text">
+          We will ship your products to your doorsteps in just 3 to 6 days!        </p>
+    
+      </div>
+    </div>
+  </div>
 
-      <!-- Step 3 -->
-      <div class="step-box">
-        <h2>Step 3</h2>
-        <img src="assets/catertories/step-3.svg" alt="Step 3" class="step-img large-img" />
-        <p>We will ship your products to your doorsteps in just 3 to 6 days!</p>
+
+
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <!-- Sidebar Filters -->
+    <div class="col-md-3 mb-4">
+      <div class="p-3 border rounded shadow-sm">
+        <h5 class="mb-3">Categories</h5>
+        <div *ngFor="let item of cdata">
+          <label class="d-block">
+            <input type="checkbox" class="me-2"> {{ item.catName }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <!-- Brand Grid -->
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-6 col-sm-4 col-md-3 mb-4" *ngFor="let brand of CompanyBrand">
+          <div class=" h-100 text-center ">
+            <!-- <img [src]="brand.image" [alt]="brand.companyName" class="card-img-top  img-fluid" (click)="productId(_id:any)" > -->
+            <img [src]="brand.image" [alt]="brand.companyName" class="card-img-top img-fluid" (click)="productId(brand._id)">
+
+            <div class="card-body p-2">
+              <h6 class="card-title mb-0">{{ brand.companyName }}</h6>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
   </div>
-  <div class="hero-content">
-    <h1>Global Shipping from Your Favourite Indian Stores</h1>
-    <p>Explore top Indian online stores, shop freely, and get everything delivered in 3 simple steps</p>
-  </div>
 </div>
 
+<app-footer></app-footer>
 
-<div class="banner">
-  <div class="banner-content">
-    <h1>YOUR FAVORITE STORES</h1>
-    <p>Discover the stuff you love at dozens of top stores with Shop Global</p>
-  </div>
-  <img src="assets/catertories/imagebanner.png" alt="Image" class="banner-image" />
-</div>
-
-<div class="container">
   <!-- Sidebar -->
-  <div class="sidebar">
+  <!-- <div class="sidebar">
     <div class="filter-header">
       <h2>Filters</h2>
       <input type="text" class="filter-search" placeholder="Search filters...">
     </div>
-
     <div class="filter-section">
       <button class="accordion">Category</button>
       <div class="panel">
         <span *ngFor="let items of cdata">
           <label><input type="checkbox"> {{items.catName}}</label>
         </span>
-
-        <div class="sub-accordion">
-          <label class="sub-toggle">Electronics ▼</label>
-          <div class="sub-panel">
-            <label><input type="checkbox"> Mobiles</label>
-            <label><input type="checkbox"> TVs</label>
-            <label><input type="checkbox"> Laptops</label>
-            <label><input type="checkbox"> Smartwatches</label>
-          </div>
-        </div>
-
-        <label><input type="checkbox"> Kitchen</label>
-        <label><input type="checkbox"> Footwear</label>
-        <label><input type="checkbox"> Fashion Accessories</label>
       </div>
     </div>
   </div>
-
-  <!-- Product area -->
   <div class="product-area">
     <h2>Indian Stores</h2>
     <div class="products-grid">
@@ -86,12 +120,10 @@
         <a [href]="brand.companyUrl" target="_blank" rel="noopener noreferrer">
           <img [src]="brand.image" [alt]="brand.companyName">
         </a>
-        <h3>{{ brand.companyName }}</h3>
+        <h3 class="text-center">{{ brand.companyName }}</h3>
       </div>
     </div>
-  </div>
-</div>
+  </div> -->
 
 
 
-<app-footer></app-footer>

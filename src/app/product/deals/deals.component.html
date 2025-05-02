@@ -1,90 +1,83 @@
-
-
 <app-header></app-header>
-  <h1 class="heading">Find the Best Deals, All in One Place</h1>
-  <p style="margin-left: 9%; font-size: 20px; opacity: 40%; " >
-    The best deals and sales from your favourite stores, plus get exclusive free shipping <br>and price drop alerts   </p>
-
-  <h2 class="Top-Deals"> Top Deals</h2>
-  <div class="brand-row">
-    <div>
-      <img src="assets/deals/mama earth.svg" alt="card"><br> Mama Earth
-    </div>
-    <div>
-      <img src="assets/deals/h&m.svg" alt="card"><br>H&M
-    </div>
-    <div>
-      <img src="assets/deals/higfiger.svg" alt="card"><br> higfiger
-    </div>
-    <div>
-      <img src="assets/deals/mama earth.svg" alt="card"><br> Mama Earth
-    </div>
-    <div>
-      <img src="assets/deals/mama earth.svg" alt="card"><br> Mama Earth
+<div class="container" >
+  <h1 class="fw-bold mx-5">Find the Best Deals, All in One Place</h1>
+  <p class="mx-5" style=" font-size: 20px;">
+    The best deals and sales from your favourite stores, plus get exclusive free shipping <br>and price drop alerts </p>
+  <div class=" mx-5 mt-5 mb-5 d-flex justify-content-between">
+    <h2 class="fw-bold  "> Top Deals</h2>
+    <p class="fw-bold">{{ Topcompany.length }} deals</p>
+  </div>
+</div>
+<div class="brand-scroll-container">
+  <button class="brand-scroll-btn left" (click)="scrollBrandsLeft()">&#10094;</button>
+  <div class="brand-scroll-wrapper" #brandScrollable>
+    <div class="brand-scroll-item" *ngFor="let brand of Topcompany">
+      <img [src]="brand.image" alt="brand.alt" />
+      <span>{{ brand.companyName }}</span>
     </div>
   </div>
-
-
-
-
-  <h2 class="FreeDay-Shipping"> Deals with Free 2-Day Shipping</h2>
-  <div class=" free-delivery">
-    <div>
-      <img src="assets/deals/mama earth.svg" alt="card"><br> Mama Earth
-    </div>
-    <div>
-      <img src="assets/deals/h&m.svg" alt="card"><br>H&M
-    </div>
-    <div>
-      <img src="assets/deals/higfiger.svg" alt="card"><br> higfiger
-    </div>
-    <div>
-      <img src="assets/deals/mama earth.svg" alt="card"><br> Mama Earth
-    </div>
-    <div>
-      <img src="assets/deals/mama earth.svg" alt="card"><br> Mama Earth
+  <button class="brand-scroll-btn right" (click)="scrollBrandsRight()">&#10095;</button>
+</div>
+<div class="container">
+  <div class=" mx-5  mb-5 d-flex justify-content-between">
+    <h2 class="fw-bold "> Deals with Free 2-Day Shipping
+    </h2>
+    <p class="fw-bold">{{ shippingData.length }} deals</p>
+  </div>
+</div>
+<div class="brand-scroll-container">
+  <button class="brand-scroll-btn left" (click)="scrollDealsLeft()">&#10094;</button>
+  <div class="brand-scroll-wrapper" #dealsScrollable>
+    <div class="brand-scroll-item" *ngFor="let brand of shippingData">
+      <img [src]="brand.image" alt="brand.alt" />
+      <span>{{ brand.companyName }}</span>
     </div>
   </div>
+  <button class="brand-scroll-btn right" (click)="scrollDealsRight()">&#10095;</button>
+</div>
+<div class="container">
+  <div class=" mx-5  mb-5 d-flex justify-content-between">
+    <h2 class="fw-bold "> Member Exclusives
+    </h2>
+    <p class="fw-bold">{{ exclusive.length }} deals</p>
+  </div>
+</div>
+<div class="brand-scroll-container">
+  <button class="brand-scroll-btn left" (click)="scrollEXLeft()">&#10094;</button>
+  <div class="brand-scroll-wrapper" #ExclusivesScrollable>
+    <div class="brand-scroll-item" *ngFor="let brand of exclusive">
+      <img [src]="brand.image" alt="brand.alt" />
+      <span>{{ brand.companyName }}</span>
+    </div>
+  </div>
+  <button class="brand-scroll-btn right" (click)="scrollEXRight()">&#10095;</button>
+</div>
 
-
-  <h2 class="Explore-more">Explore more deals</h2>
-  <div class="explore-buttons">
-  <button type="button" class="btn btn-dark" >All Deals</button>
-<button type="button" class="btn btn-outline-secondary">Men</button>
-<button type="button" class="btn btn-outline-secondary">Women</button>
-<button type="button" class="btn btn-outline-secondary">Kids</button>
-<button type="button" class="btn btn-outline-secondary">Sweets</button>
-<button type="button" class="btn btn-outline-secondary">Pickles</button>
-<button type="button" class="btn btn-outline-secondary">Beauty</button>
-<button type="button" class="btn btn-outline-secondary">Health & Wellness</button>
+<h2 class="Explore-more">Explore more deals</h2>
+<div class="explore-buttons ">
+  <button type="button" class="btn btn-dark mx-1">All Deals</button>
+  <button type="button" class="btn btn-outline-secondary mx-1">Men</button>
+  <button type="button" class="btn btn-outline-secondary mx-1">Women</button>
+  <button type="button" class="btn btn-outline-secondary mx-1">Kids</button>
+  <button type="button" class="btn btn-outline-secondary mx-1">Sweets</button>
+  <button type="button" class="btn btn-outline-secondary mx-1">Pickles</button>
+  <button type="button" class="btn btn-outline-secondary mx-1">Beauty</button>
+  <button type="button" class="btn btn-outline-secondary mx-1">Health & Wellness</button>
 </div>
 
 
-<div class="Explore-cards">
-  <div>
-  <div>
-    <img src="assets/deals/mama earth.svg" alt="card"><br> Mama Earth
+<div class="container mt-5 mb-2">
+  <div class="row">
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4" *ngFor="let brand of visibleBrands">
+      <img [src]="brand.image" alt="{{ brand.alt }}" class="img-fluid" />
+      <p class="fw-bold mt-2">{{ brand.companyName }}</p>
+    </div>
   </div>
-  <div>
-    <img src="./h&m.svg" alt="card"><br>H&M
-  </div>
-  <div>
-    <img src="./higfiger.svg" alt="card"><br> Higfiger
-  </div>
-  <div>
-    <img src="./mama earth.svg" alt="card"><br> Mama Earth
-  </div>
-  <div>
-    <img src="./mama earth.svg" alt="card"><br> Mama Earth
+
+  <div class="d-flex justify-content-center mb-5 mt-3"  *ngIf="!showAllBrands">
+    <button class="btn btn-dark " (click)="toggleBrands()" >View More
+    </button>
   </div>
 </div>
-  
-
-
-
-<button class="button type1">
-  <span class="btn-txt">View more</span>
-</button>
-
 
 <app-footer></app-footer>

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   form:FormGroup
   loginData: any;
+  userDetails: any;
   constructor(private fb: FormBuilder, private api: BranchService,private router:Router) {
     this.form=this.fb.group({
       email:['', Validators.required],
@@ -25,6 +26,9 @@ export class LoginComponent {
     this.api.Login(payload).subscribe(
       (response) => {
         console.log('login successful', response);
+        this.userDetails=response
+        console.log("loginsucess:",this.userDetails);
+        
         this.router.navigate(['/home']); 
       },
       (error) => {
