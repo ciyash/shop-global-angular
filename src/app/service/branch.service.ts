@@ -12,13 +12,24 @@ export class BranchService {
   constructor(private http: HttpClient, private router: Router) {}
 
   // Company
-allStore(): Observable<any> {
+  allStore(): Observable<any> {
     return this.http.get(this.AUTH_API + '/api/company/get');
-}
+  }
+  // todeals company
+  GetTopCompany(): Observable<any> {
+    return this.http.get(this.AUTH_API + '/api/company/topdeals');
+  }
+
+  // exclusive
+  exclusive(): Observable<any> {
+    return this.http.get(this.AUTH_API + '/api/company/memberexclusives');
+  }
+  
+
   TrendingCompany(): Observable<any> {
     return this.http.get(this.AUTH_API + '/api/company/trending');
   }
-  companyTopdeals(id:any){
+  companyTopdeals(id: any) {
     return this.http.get(`${this.AUTH_API}/api/product/companyId/${id}`);
   }
 
@@ -30,7 +41,7 @@ allStore(): Observable<any> {
     return this.http.get(this.AUTH_API + '/api/product/top-deals');
   }
 
-// catergories
+  // catergories
   GetCatergory(): Observable<any> {
     return this.http.get(this.AUTH_API + '/api/sub-category/get');
   }
@@ -38,30 +49,56 @@ allStore(): Observable<any> {
     return this.http.get(`${this.AUTH_API}/api/product/subcategoryId/${id}`);
   }
 
-
   // logo
   Getlogs(): Observable<any> {
-      return this.http.get(this.AUTH_API + '/api/logo');
-    }
+    return this.http.get(this.AUTH_API + '/api/logo');
+  }
   // catergorires
   Getcatergories(): Observable<any> {
     return this.http.get(this.AUTH_API + '/api/category/get');
   }
-// 
+
+  //
   Signup(userData: any) {
     return this.http.post(`${this.AUTH_API}/api/user/signup`, userData);
   }
+  
   Login(value: any) {
     return this.http.post(`${this.AUTH_API}/api/user/login`, value);
   }
 
   FeedBack(): Observable<any> {
     return this.http.get(this.AUTH_API + '/api/feedback/get');
-
   }
 
   address(): Observable<any> {
     return this.http.get(this.AUTH_API + '/api/address');
-
   }
+
+  GetFreeShipping(): Observable<any> {
+    return this.http.get(this.AUTH_API + '/api/company/freeshipped');
+  }
+
+  productId(id: any) {
+    return this.http.get(this.AUTH_API + '/api/product-category/' + id);
+  }
+  
+
+getMainproductData(id:any){
+  return this.http.get(this.AUTH_API + '/api/product/' + id);
+}
+
+getSubCatergoies(id:any){
+  return this.http.get(this.AUTH_API + '/api/product/subcategoryId/' + id);
+
+}
+GetCompanyID(id:any){
+  return this.http.get(this.AUTH_API + '/api/product/companyId/' + id);
+}
+
+filterBrands(id:any){
+  return this.http.get(this.AUTH_API + '/api/product/categoryId/' + id);
+}
+
+  
 }

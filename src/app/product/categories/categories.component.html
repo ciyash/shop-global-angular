@@ -1,31 +1,55 @@
 <app-header></app-header>
-<section class="hero-banner">
-  <img src="assets/brands/Mama earth banner.svg" alt="Mama Earth promotional banner" class="hero-image" />
-</section>
+<!-- <section class="hero-banner " style="background-image: url('assets/fashion banner.svg'); 
+background-size: cover;
+ background-position: right center; 
+ background-repeat: no-repeat; padding: 80px 0;  ">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 text-white">
+        <h1 class="hero-title">Seasonal collection</h1>
+        <p class="hero-description">
+          Explore our Seasonal Collection—stylish picks for every
+           season. From cozy winter layers to breezy summer fits, stay trendy
+            all year long with our curated must-haves.
+        </p>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<style>
+  .hero-title {
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+  .hero-banner {
+    height: 400px;
+  }
+
+  .hero-description {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+</style>
+
 <div class="virtual-address">
   <img src="assets/brands/Nxt logst logo.svg" alt="Company Logo" class="logo" />
   <p class="address-text">
-    6-1-91, Khairtabad Market Rd, Central Secretariat, Khairtabad, <br> Hyderabad, Telangana 500004
+      Shop no. 35 & 36, Vasavi complex, Lakdikapool, Hyderabad - 500034
   </p>
   <button class="copy-btn" onclick="copyAddress()">Copy Address</button>
   <span id="copy-message" class="copy-message"></span>
 </div>
-
-
 <div class="section">
   <div class="best-seller">Best Seller</div>
-  
-
-
-
   <style>
     .product-img {
-  height: 200px;
-  object-fit: cover;
-  width: 100%;
-  border-radius: 8px;
-}
-
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 8px;
+    }
   </style>
 
   <div class="container-fluid">
@@ -34,70 +58,37 @@
         <div class="p-3  h-100  ">
           <!-- Image with same size and responsive -->
           <img [src]="items.image" alt="{{items.productName}}" class="img-fluid product-img mb-2 text-center" />
-  
+
           <!-- Product Info -->
           <div class="fw-bold ">{{ items.productName }}</div>
-  
+          <div class="fw-bold ">{{ items.description }}</div>
           <div class="rating  small">
-            <span>4.2 ★</span>
-            <span>(6,275)</span>
+            <!-- <span>4.2 ★</span>
+            <span>(6,275)</span> -->
           </div>
-  
           <div class="price mt-1">
-            <span class="text-danger fw-bold">-22%</span>
-            <span class="text-dark fw-semibold ms-2">&#8377; {{ items.price }}</span>
+            <span class="text-dark fw-semibold ms-2"> {{ items.offerprice | currency:'INR':true:'1.0-1' }}</span>
+            <span class="text-dark fw-semibold ms-2"> <del>{{items.price | currency:'INR':true:'1.0-1' }}</del></span><br>
+            <span class="text-danger fw-bold">{{ ((items.price - items.offerprice) / items.price * 100) | number:'1.0-0' }}% OFF</span>
           </div>
-          <div class="text-muted small">($2.02/100 ml)</div>
-          <div class="text-success small"><span class="save-badge">Save 10%</span> with coupon</div>
-          <div class="delivery small"><strong>Get it by Monday 21 April</strong></div>
-          <div class="text-muted small">10K+ bought in past month</div>
-  
+
+          <!-- <div class="text-muted small">($2.02/100 ml)</div> -->
+          <!-- <div class="text-success small"><span class="save-badge">Save 10%</span> with coupon</div> -->
+          <a class="product-details" (click)="view(items._id)" style="color: rgb(41, 39, 39);">View Detail</a>
+
+
+          <!-- <div class="delivery small"><strong>Get it by Monday 21 April</strong></div> -->
+          <!-- <div class="text-muted small">10K+ bought in past month</div> -->
+
+
           <!-- <button class="add-to-cart">Add to Cart</button> -->
 
-          <div class="d-grid gap-2 col-12 mx-auto mt-2">
+          <!-- <div class="d-grid gap-2 col-12 mx-auto mt-2">
             <button class="btn add-to-cart" type="button">Add to Cart</button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
   </div>
-  
-  
-
-
-  
-
-
-
-
-  <script>
-    function copyAddress() {
-      // Get the address text
-      const addressText = document.querySelector('.address-text').textContent;
-
-      // Create a temporary textarea to copy the text to clipboard
-      const textarea = document.createElement('textarea');
-      textarea.value = addressText;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-
-      // Get the button and message element
-      const copyButton = document.querySelector('.copy-btn');
-      const copyMessage = document.getElementById('copy-message');
-
-      // Change button text to "Copied!"
-      copyButton.textContent = 'Copied!';
-
-      // Show the "Copied!" message with animation
-      copyMessage.classList.add('show');
-
-      // Hide the message and revert button text after 2 seconds
-      setTimeout(() => {
-        copyMessage.classList.remove('show'); // Hide the message
-        copyButton.textContent = 'Copy Address'; // Revert button text
-      }, 2000);
-    }
-
-  </script>
+</div>
+<app-footer></app-footer>

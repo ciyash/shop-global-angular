@@ -1,206 +1,91 @@
 <!-- Top Header -->
-<div class="top-header">
+<div class="top-header text-dark text-center py-2 " style="background-color: #90F0F1;">
   Save on Mother's Day gifts from $50 at Shop Simon. <strong>Shop Now</strong>
 </div>
 
-<!-- Navbar -->
-<div class="navbar">
-  <!-- Logo -->
-  <div class="logo">
-    <img src="assets/S.G logo.png" alt="Logo" />
-  </div>
+<!-- Sticky Navbar -->
+<div class="container-fluid sticky-top" style="background-color: black;">
+  <div class="container sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top shadow-sm">
+      <div class="container-fluid px-4">
+        <!-- Logo      mmm-->
+        <!-- Logo ---->
+        <a class="navbar-brand" (click)="gethome()">
+          <img src="assets/S.G logo.png" alt="Logo" height="50" />
+        </a>
+        <button class="navbar-toggler" type="button" (click)="toggleNavbar = !toggleNavbar"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <!-- Hamburger Icon -->
-  <button class="menu-toggle" onclick="toggleMenu()" id="menuToggle">&#9776;</button>
+        <div [ngClass]="{'collapse navbar-collapse': true, 'show': toggleNavbar}" id="navbarNavDropdown">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown" [class.show]="dropdownOpen">
+              <a class="nav-link dropdown-toggle text-white" href="javascript:void(0);" (click)="toggleDropdown()">
+                Shop
+              </a>
+              <div *ngIf="dropdownOpen" class="dropdown-menu show mt-3" style="width: 50rem; margin-left: -20rem;">
+                <div class="row">
+                  <div class="col-md-4 border-end" style="max-height: 300px; overflow-y: auto;">
+                    <div class="p-2">
+                      <p class="menss"  *ngFor="let items of cdata" (click)="OnSelectCatbySubcat(items._id)">{{ items.catName }}</p>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-8">
+                    <div *ngIf="productData && productData.length > 0; else noProducts">
+                      <div class="row">
+                        <div class="col-md-6" *ngFor="let item of productData">
+                          <p (click)="getId(item.subcategoryId._id)" style="cursor: pointer;">{{ item.subcategoryId.subCategoryName }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <ng-template #noProducts>
+                      <p>No Products</p>
+                    </ng-template>
+                  </div>
+                  
+                  
 
-  <!-- Nav Links -->
-  <div class="nav-links" id="navLinks" >
-    
-    <!-- Shop Dropdown -->
-    <li class="nav-item dropdown" style="list-style: none;" (mouseenter)="dropdownOpen = true" (mouseleave)="dropdownOpen = false">
-      <a 
-        class="nav-link dropdown-toggle mx-4" 
-        style="font-size: 1.25rem; cursor: pointer;" 
-        href="javascript:void(0);"
-        (click)="dropdownOpen = !dropdownOpen">
-        Shop
-      </a>
-      <ul 
-        class="dropdown-menu p-3 show" 
-        *ngIf="dropdownOpen" 
-        style="width: 99vw; margin-left: -671px; min-width: 617px; margin-top: 32px;">
-        
-        <div class="row">
-          <div class="col-md-2 border-end">
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action" data-target="popular-fashion">Pickles &
-                Sweets</a>
-              <a href="#" class="list-group-item list-group-item-action" data-target="beauty-products">Beauty
-                Products</a>
-              <a href="#" class="list-group-item list-group-item-action" data-target="toys">Toys</a>
-              <a href="#" class="list-group-item list-group-item-action" data-target="books">Books</a>
-              <a href="#" class="list-group-item list-group-item-action"
-                data-target="electronics">Electronics</a>
-            </div>
-          </div>
-          <!-- Right Grid Content -->
-          <div class="col-md-4">
-            <div id="popular-fashion" class="content-section">
-              <h6 class="fw-bold mb-3 text-center">Popular Fashion Stores</h6>
-              <div class="row">
-                <div class="col-4">
-                  <p><a href="/amzon.html" class="dropdown-item">Amazon</a></p>
-                  <p><a href="#" class="dropdown-item">Flipkart</a></p>
-                  <p><a href="#" class="dropdown-item">Myntra</a></p>
-                  <p><a href="#" class="dropdown-item">Meesho</a></p>
-                  <p><a href="#" class="dropdown-item">Ebay</a></p>
-                </div>
-                <div class="col-4">
-                  <p><a href="#" class="dropdown-item">H&M</a></p>
-                  <p><a href="#" class="dropdown-item">Allen Solly</a></p>
-                  <p><a href="#" class="dropdown-item">Ajio</a></p>
-                  <p><a href="#" class="dropdown-item">Snapdeal</a></p>
-                  <p><a href="#" class="dropdown-item">Walmart</a></p>
-                </div>
-                <div class="col-4">
-                  <p><a href="#" class="dropdown-item">Bewakoof</a></p>
-                  <p><a href="#" class="dropdown-item">Tata CLiQ</a></p>
-                  <p><a href="#" class="dropdown-item">ShopClues</a></p>
-                  <p><a href="#" class="dropdown-item">Big Commerce</a></p>
-                  <p><a href="#" class="dropdown-item">Indian Garage</a></p>
                 </div>
               </div>
-            </div>
-            <div id="beauty-products" class="content-section" style="display: none;">
-              <h6 class="fw-bold mb-3 text-center">Popular Beauty Stores</h6>
-              <div class="row">
-                <div class="col-4">
-                  <p><a href="#" class="dropdown-item">Nykaa</a></p>
-                  <p><a href="#" class="dropdown-item">Sephora</a></p>
-                  <p><a href="#" class="dropdown-item">Amazon</a></p>
-                  <p><a href="#" class="dropdown-item">Flipkart</a></p>
-                  <p><a href="#" class="dropdown-item">Purplle</a></p>
-                </div>
-                <div class="col-4">
-                  <p><a href="#" class="dropdown-item">L'Oréal</a></p>
-                  <p><a href="#" class="dropdown-item">Himalaya</a></p>
-                  <p><a href="#" class="dropdown-item">The Body Shop</a></p>
-                  <p><a href="#" class="dropdown-item">Nykaa Fashion</a></p>
-                  <p><a href="#" class="dropdown-item">Walmart</a></p>
-                </div>
-                <div class="col-4">
-                  <p><a href="#" class="dropdown-item">Forest Essentials</a></p>
-                  <p><a href="#" class="dropdown-item">Mamaearth</a></p>
-                  <p><a href="#" class="dropdown-item">ShopClues</a></p>
-                  <p><a href="#" class="dropdown-item">Big Bazaar</a></p>
-                  <p><a href="#" class="dropdown-item">Lookfantastic</a></p>
-                </div>
-              </div>
-            </div>
+              
+            </li>
+            
+            
 
-            <div id="toys" class="content-section" style="display: none;">
-              <h6 class="fw-bold mb-3 text-center">Popular Toy Stores</h6>
-              <div class="row">
-                <div class="col-4">
-                  <p><a href="#" class="dropdown-item">Amazon</a></p>
-                  <p><a href="#" class="dropdown-item">Flipkart</a></p>
-                  <p><a href="#" class="dropdown-item">Hamleys</a></p>
-                  <p><a href="#" class="dropdown-item">ToyRUs</a></p>
-                  <p><a href="#" class="dropdown-item">Ebay</a></p>
-                </div>
-                <div class="col-4">
-                  <p><a href="#" class="dropdown-item">Big Bazaar</a></p>
-                  <p><a href="#" class="dropdown-item">FirstCry</a></p>
-                  <p><a href="#" class="dropdown-item">Snapdeal</a></p>
-                  <p><a href="#" class="dropdown-item">Walmart</a></p>
-                  <p><a href="#" class="dropdown-item">ShopClues</a></p>
-                </div>
-                <div class="col-4">
-                  <p><a href="#" class="dropdown-item">Toys"R"Us India</a></p>
-                  <p><a href="#" class="dropdown-item">IndiaPlaza</a></p>
-                  <p><a href="#" class="dropdown-item">BabyOye</a></p>
-                  <p><a href="#" class="dropdown-item">Big Commerce</a></p>
-                  <p><a href="#" class="dropdown-item">Hopscotch</a></p>
-                </div>
-              </div>
+            <!-- Deals -->
+            <li class="nav-item">
+              <a class="nav-link text-white" routerLink="/products/deals">Deals</a>
+            </li>
+
+            <!-- How It Works -->
+            <li class="nav-item">
+              <a class="nav-link text-white" routerLink="/products/howitwork">How It Works</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-white" routerLink="/products/howitwork">Shipping calculate</a>
+            </li>
+          </ul>
+
+
+          <form class="d-flex ms-auto align-items-center">
+            <div class="position-relative me-2" style="width: 250px;">
+              <input class="form-control" type="search" placeholder="Search product brands"
+                style="border-radius: 16px; padding-right: 2.5rem;" />
+
+              <i class="fa fa-search text-muted position-absolute"
+                style="top: 50%; right: 15px; transform: translateY(-50%); pointer-events: none;"></i>
             </div>
 
-            <div id="books" class="content-section" style="display: none;">
-              <h6 class="fw-bold mb-3 text-center">Popular Book Stores</h6>
-              <div class="row">
-                <div class="col-4">
-                  <p><a href="#" class="dropdown-item">Amazon</a></p>
-                  <p><a href="#" class="dropdown-item">Flipkart</a></p>
-                  <p><a href="#" class="dropdown-item">BookMyShow</a></p>
-                  <p><a href="#" class="dropdown-item">Ebay</a></p>
-                  <p><a href="#" class="dropdown-item">IndiaPlaza</a></p>
-                </div>
-                <div class="col-4">
-                  <p><a href="#" class="dropdown-item">Crossword</a></p>
-                  <p><a href="#" class="dropdown-item">Landmark</a></p>
-                  <p><a href="#" class="dropdown-item">Snapdeal</a></p>
-                  <p><a href="#" class="dropdown-item">Walmart</a></p>
-                  <p><a href="#" class="dropdown-item">ShopClues</a></p>
-                </div>
-                <div class="col-4">
-                  <p><a href="#" class="dropdown-item">Penguin India</a></p>
-                  <p><a href="#" class="dropdown-item">Rupa Publications</a></p>
-                  <p><a href="#" class="dropdown-item">Big Bazaar</a></p>
-                  <p><a href="#" class="dropdown-item">Kitab Khana</a></p>
-                  <p><a href="#" class="dropdown-item">BookAdda</a></p>
-                </div>
-              </div>
-            </div>
+            <!-- <button type="submit" class="btn p-0 border-0 bg-transparent"> -->
+            <!-- </button> -->
+          </form>
+          <span routerLink="/login"><i class="fa fa-user-plus text-white" aria-hidden="true" style="font-size: 20px;"></i></span>
 
-            <div id="electronics" class="content-section" style="display: none;">
-              <h6 class="fw-bold mb-3 text-center">Popular Electronics Stores</h6>
-              <div class="row">
-                <div class="col-4">
-                  <p><a href="#" class="dropdown-item">Amazon</a></p>
-                  <p><a href="#" class="dropdown-item">Flipkart</a></p>
-                  <p><a href="#" class="dropdown-item">Croma</a></p>
-                  <p><a href="#" class="dropdown-item">Ebay</a></p>
-                  <p><a href="#" class="dropdown-item">Reliance Digital</a></p>
-                </div>
-                <div class="col-4">
-                  <p><a href="#" class="dropdown-item">Samsung</a></p>
-                  <p><a href="#" class="dropdown-item">Apple Store</a></p>
-                  <p><a href="#" class="dropdown-item">Snapdeal</a></p>
-                  <p><a href="#" class="dropdown-item">Walmart</a></p>
-                  <p><a href="#" class="dropdown-item">ShopClues</a></p>
-                </div>
-                <div class="col-4">
-                  <p><a href="#" class="dropdown-item">Vijay Sales</a></p>
-                  <p><a href="#" class="dropdown-item">Tata CLiQ</a></p>
-                  <p><a href="#" class="dropdown-item">Big Bazaar</a></p>
-                  <p><a href="#" class="dropdown-item">Best Buy</a></p>
-                  <p><a href="#" class="dropdown-item">Infibeam</a></p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <img src="/images/personal-1.jpg" alt="" width="200px" height="300px">
-            <img src="/images/personal-1.jpg" alt="" width="200px" height="300px">
-
-          </div>
-
-        </div>        
-      </ul>
-    </li>
-    <!-- Other Links -->
-    <a routerLink="/products/deals">Deals</a>
-    <a href="#how-it-works">How It Works</a>
-
-  </div>
-
-  <!-- Search Bar -->
-  <div class="search-bar">
-    <input type="text" placeholder="Search..." />
-    <button>
-      <img src="assets/Search icon.svg" alt="Search" class="search-icon" />
-    </button>
+        </div>
+      </div>
+    </nav>
   </div>
 </div>
-

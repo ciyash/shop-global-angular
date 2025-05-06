@@ -22,7 +22,6 @@ export class CompanyTopProductsComponent implements OnInit {
       }
     });
   }
-
   getTopDealsForBrand() {
     this.api.companyTopdeals(this.brandId).subscribe({
       next: (response: any) => {
@@ -34,4 +33,6 @@ export class CompanyTopProductsComponent implements OnInit {
       }
     });
   }
+
+
 }

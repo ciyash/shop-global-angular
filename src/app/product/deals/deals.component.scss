@@ -1,126 +1,4 @@
-body {
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  /* Google Font */
-  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-  
-  /* Top Header */
-  .top-header {
-    background: linear-gradient(to right, #87F1FC, #B9ECC0);
-    color: #000;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-    position: fixed; /* Fix to top */
-    top: 0;
-    left: 0;
-    width: 100%; 
-    z-index: 1000; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  
-  }
-  
-  /* Navbar */
-  .navbar {
-    background-color: #100101;
-    color: #fff;
-    padding: 8px 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    font-family: 'Poppins', sans-serif;
-    position: fixed; /* Fix the navbar */
-    top: 40px; /* Give space below the top header */
-    left: 0;
-    width: 100%;
-    z-index: 999; /* Ensure navbar is just below the top header */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
-  }
-  
-  /* Navbar structure */
-  .navbar-section {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-right: 100px;
-    margin-top: 3%;
-  }
-  
-  /* Logo */
-  .logo img {
-    height: 70px;
-    margin-left: 160px;
-    
-    
-  }
-  
-  /* Hamburger Icon */
-  .menu-toggle {
-    display: none;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-    background: none;
-    border: none;
-  }
-  
-  /* Nav Links */
-  .nav-links {
-    display: flex;
-    gap: 50px;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    margin-left: -300px;
-  }
-  
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-size: 18px;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .nav-links a:hover {
-    color: #1ea3ef;
-  }
-  
-  /* Search Bar */
-  .search-bar {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background-color: #fff;
-    border-radius: 50px;
-    padding: 4px 12px;
-    margin-right: 160px;
-  }
-  
-  .search-bar input {
-    border: none;
-    outline: none;
-    padding: 6px 12px;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 50px;
-    font-size: 14px;
-  }
-  
-  .search-bar button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    margin-left: 30px;
-  }
-  
-  .search-icon {
-    width: 32px;
-    height: 32px;
-  }
+
   .heading{
     color: #000;
     margin-top: 6%;
@@ -157,8 +35,6 @@ body {
 
 
 
-
-
   .free-delivery {
     display: flex;
     gap: 50px; /* space between items */
@@ -185,7 +61,6 @@ body {
 
 
   .Explore-more{
-    margin-top: 7%;
     margin-left: 10%;
   }
 
@@ -242,7 +117,6 @@ body {
   z-index: 1;
   font-weight: 600;
   letter-spacing: 2px;
-  
 }
 
 .type1::after {
@@ -269,3 +143,113 @@ body {
   visibility: visible;
   transform: scale(100) translateX(2px);
 }
+
+
+.brand-scroll-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+    justify-content: center;
+    bottom:40px;
+  }
+  
+  .brand-scroll-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px; 
+    padding: 10px 10px;
+    scroll-snap-type: x mandatory;
+    width: 75vw;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .brand-scroll-item {
+    flex: 0 0 18%;
+    scroll-snap-align: center;
+    text-align: start;
+  }
+  
+  
+  .brand-scroll-item img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 8px;
+    text-align: start;
+    padding-right: 1px
+  
+  }
+  
+  .brand-scroll-item span {
+    font-size: 18px;
+    color: #333;
+    display: block;
+    text-align: start; 
+    margin-top: 4px;
+  }
+  
+  
+  .brand-scroll-btn {
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #000;
+    color: white;
+    border-radius: 100%;
+  }
+  
+  .brand-scroll-btn.left {
+    left: 160px;
+    top: 120px;
+  }
+  
+  .brand-scroll-btn.right {
+    right: 130px;
+    top: 120px;
+  }
+  .brand-scroll-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+    justify-content: center;
+  }
+  
+  .brand-scroll-container:hover .brand-scroll-btn {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .brand-scroll-btn {
+    background: rgb(0, 0, 0);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; 
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  

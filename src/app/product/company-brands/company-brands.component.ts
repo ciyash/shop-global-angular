@@ -11,9 +11,7 @@ export class CompanyBrandsComponent implements OnInit {
   CompanyBrand: any[] = []; // Define brands as an array
   cdata:any;
   Adata: any;
-
   constructor(private router: Router,private api:BranchService) {}
-
   ngOnInit(): void {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras?.state?.['CompanyBrand']) {
@@ -29,7 +27,6 @@ export class CompanyBrandsComponent implements OnInit {
     this.Getcatertories();
     this.getaddress();
   }
-
 Getcatertories(){
   this.api.Getcatergories().subscribe({
     next:(res:any)=>{
@@ -50,10 +47,16 @@ getaddress(){
 })}
 
 
+productId(id: string): void {
+  console.log('Selected brand ID:', id);
+  this.router.navigate(['/products/categories', id]);
+}
+
+
 
 copyAddress() {
   const address = `${this.Adata[0].houseNo} ${this.Adata[0].address}, ${this.Adata[0].city}, ${this.Adata[0].pincode}`;
-  
+
   // Create a textarea element to copy the text
   const textarea = document.createElement('textarea');
   textarea.value = address;

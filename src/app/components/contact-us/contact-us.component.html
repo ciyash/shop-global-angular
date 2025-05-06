@@ -1,0 +1,196 @@
+
+    
+<app-header></app-header>
+    <section class="contact-section">
+        <div class="container">
+          <div class="info-grid">
+            <div class="info-box">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <h3>Address</h3>
+              <p>Shop no. 35 & 36, Vasavi complex, Lakdikapool, Hyderabad - 500034</p>
+            </div>
+            <div class="info-box">
+              <!-- <i class="fas fa-phone"></i> -->
+              <i class="fa fa-phone-square" aria-hidden="true"></i>
+
+              <h3>Phone</h3>
+              <p>+91 8123690699</p>
+            </div>
+            <div class="info-box">
+              <!-- <i class="fas fa-envelope"></i> -->
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+
+              <h3>Email</h3>
+              <p>info@shopglobal.io</p>
+            </div>
+          </div>
+      
+          <div class="form-box">
+            <h2>Send Us a Message</h2>
+            <form>
+              <input type="text" placeholder="Your Name" required />
+              <input type="email" placeholder="Your Email" required />
+              <textarea placeholder="Your Message" required></textarea>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+
+
+        <style>
+          .selling-online {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+            font-size: clamp(16px, 2.5vw, 18px); /* Responsive font size */
+          }
+      
+          .selling-online img {
+            width: 100%;
+            height: auto;
+            display: block;
+          }
+      
+          .selling-online .sg-logo {
+            position: absolute;
+            top: 5vw; /* Relative to viewport */
+            right: 5vw;
+            width: clamp(150px, 20vw, 200px); /* Responsive logo size */
+            height: auto;
+            z-index: 10;
+            animation: pulse 1.5s infinite ease-in-out, fadeIn 1s ease-in 0.5s;
+          }
+      
+          .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #000;
+            padding: clamp(20px, 5vw, 40px); /* Responsive padding */
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            text-align: center; /* Center text for smaller screens */
+            width: 90%; /* Ensure it fits on smaller screens */
+            max-width: 600px; /* Limit width on larger screens */
+          }
+      
+          .text-overlay h1 {
+            font-size: clamp(24px, 5vw, 36px); /* Responsive heading size */
+            font-weight: bold;
+            margin: 0 0 15px 0;
+            line-height: 1.2;
+            color: #000;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+          }
+      
+          .text-overlay p {
+            margin: 0;
+            color: #000;
+            opacity: 0.6;
+            font-size: clamp(14px, 2.5vw, 18px); /* Responsive paragraph size */
+          }
+      
+          .get-started-btn {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px);
+            font-size: clamp(14px, 2vw, 16px);
+            font-family: 'Poppins', sans-serif;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+          }
+      
+          .get-started-btn:hover {
+            background-color: #333;
+          }
+      
+          /* Animation keyframes */
+          @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+          }
+      
+          @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+          }
+      
+          /* Media Queries for additional responsiveness */
+          @media (max-width: 768px) {
+            .selling-online .sg-logo {
+              top: 3vw;
+              right: 3vw;
+              width: clamp(100px, 15vw, 150px);
+            }
+      
+            .text-overlay {
+              padding: 20px;
+              width: 85%;
+            }
+      
+            .text-overlay h1 {
+              font-size: clamp(20px, 6vw, 28px);
+            }
+      
+            .text-overlay p {
+              font-size: clamp(12px, 3vw, 16px);
+            }
+          }
+      
+          @media (max-width: 480px) {
+            .selling-online {
+              font-size: 14px;
+            }
+      
+            .selling-online .sg-logo {
+              top: 10px;
+              right: 10px;
+              width: 100px;
+            }
+      
+            .text-overlay {
+              top: 60%;
+              padding: 15px;
+              width: 90%;
+            }
+      
+            .text-overlay h1 {
+              margin-bottom: 10px;
+            }
+      
+            .get-started-btn {
+              padding: 8px 20px;
+              font-size: 14px;
+            }
+          }
+        </style>
+ 
+        <!-- <div class="selling-online" style="background-image: url(/src/assets/start\ selling\ online.svg);">
+          <img src="assets/start selling online.svg" alt="selling online" />
+          <img src="assets/S.G logo.png" alt="SG Logo" class="sg-logo" />
+          <div class="text-overlay">
+            <h1>Start selling online.</h1>
+            <p>Take your business online with Shop Global. Get your free online store in 30 seconds.</p>
+            <button class="get-started-btn">Get started</button>
+          </div>
+        </div> -->
+
+
+
+    
+
+
+
+
+      <app-footer></app-footer>
+      
+
+
