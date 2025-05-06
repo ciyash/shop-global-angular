@@ -1,5 +1,6 @@
 import { BranchService } from 'src/app/service/branch.service';
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-deals',
   templateUrl: './deals.component.html',
@@ -10,7 +11,8 @@ export class DealsComponent {
   shippingData: any;
   Topcompany: any;
   exclusive: any;
-  constructor(private api:BranchService){}
+  cdata:any;
+  constructor(private api:BranchService, private router:Router){}
   @ViewChild('brandScrollable', { static: false }) brandScrollable!: ElementRef;
   @ViewChild('dealsScrollable', { static: false }) dealsScrollable!: ElementRef;
   @ViewChild('ExclusivesScrollable', { static: false }) ExclusivesScrollable!: ElementRef;
@@ -69,8 +71,20 @@ toggleBrands() {
 
 
 
+Getcatertories() {
+  this.api.Getcatergories().subscribe({
+    next: (res: any) => {
+      this.cdata = res;
+      console.log("cdata:", this.cdata);
+    }
+  });
+}
 
+getId(categoryId: any) {
+  console.log('Clicked ID:', categoryId);
+  this.router.navigate(['/products/categories', categoryId]);
 
+}
   
   GetShipingData(){
     this.api.GetFreeShipping().subscribe({

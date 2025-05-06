@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BranchService } from 'src/app/service/branch.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(
     private api: BranchService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute, private router: Router
   ) {}
 
   ngOnInit() {
@@ -65,4 +65,11 @@ export class ProductDetailsComponent implements OnInit {
 toggleFavorite(id:number) {
   this.isFavorite = !this.isFavorite;
 }
+
+view(id: number) {
+  console.log('productId:', id);
+  this.router.navigate(['/products/productDetails', id]);
+}
+
+
 }

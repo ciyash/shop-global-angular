@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   dropdownOpen = false;
   toggleNavbar = false;
   activeSection = 'popular-fashion';
-  productData: any;
+  productData: any[] = [];
   catergotyid: any;
 
   constructor(private router: Router, private api: BranchService) {}
@@ -30,17 +30,26 @@ export class HeaderComponent implements OnInit {
       next: (res: any) => {
         this.cdata = res;
         console.log("cdata:", this.cdata);
+  
+        // Automatically load first category's data
+        if (this.cdata && this.cdata.length > 0) {
+          this.OnSelectCatbySubcat(this.cdata[0]._id);
+        }
       }
     });
-  }
+  } 
 
 
-  setCategory(id: any): void {
-
-    console.log("Category ID:", id);
-    this.catergotyid=id
-    this.GetfilterProducts();
-
+  OnSelectCatbySubcat(id: any) {
+    this.api.filterBrands(id).subscribe(
+      (res1: any) => {
+        console.log('pda',res1);
+        this.productData = res1;
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
   
 
@@ -54,7 +63,11 @@ export class HeaderComponent implements OnInit {
     });
   }
   
-
+  getId(categoryId: any) {
+    console.log('Clicked ID:', categoryId);
+    this.router.navigate(['/products/categories', categoryId]);
+  
+  }
 
 
 

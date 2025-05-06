@@ -36,7 +36,7 @@ background-size: cover;
 <div class="virtual-address">
   <img src="assets/brands/Nxt logst logo.svg" alt="Company Logo" class="logo" />
   <p class="address-text">
-    6-1-91, Khairtabad Market Rd, Central Secretariat, Khairtabad, <br> Hyderabad, Telangana 500004
+      Shop no. 35 & 36, Vasavi complex, Lakdikapool, Hyderabad - 500034
   </p>
   <button class="copy-btn" onclick="copyAddress()">Copy Address</button>
   <span id="copy-message" class="copy-message"></span>
@@ -63,12 +63,13 @@ background-size: cover;
           <div class="fw-bold ">{{ items.productName }}</div>
           <div class="fw-bold ">{{ items.description }}</div>
           <div class="rating  small">
-            <span>4.2 ★</span>
-            <span>(6,275)</span>
+            <!-- <span>4.2 ★</span>
+            <span>(6,275)</span> -->
           </div>
           <div class="price mt-1">
-            <span class="text-danger fw-bold">22%</span>
-            <span class="text-dark fw-semibold ms-2">&#8377; {{ items.price }}</span>
+            <span class="text-dark fw-semibold ms-2"> {{ items.offerprice | currency:'INR':true:'1.0-1' }}</span>
+            <span class="text-dark fw-semibold ms-2"> <del>{{items.price | currency:'INR':true:'1.0-1' }}</del></span><br>
+            <span class="text-danger fw-bold">{{ ((items.price - items.offerprice) / items.price * 100) | number:'1.0-0' }}% OFF</span>
           </div>
 
           <!-- <div class="text-muted small">($2.02/100 ml)</div> -->

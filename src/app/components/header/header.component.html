@@ -27,19 +27,26 @@
               <div *ngIf="dropdownOpen" class="dropdown-menu show mt-3" style="width: 50rem; margin-left: -20rem;">
                 <div class="row">
                   <div class="col-md-4 border-end" style="max-height: 300px; overflow-y: auto;">
-                    <div class="p-2" *ngFor="let items of cdata">
-                      <p class="menss" (click)="setCategory(items._id)">{{ items.catName }}</p>
+                    <div class="p-2">
+                      <p class="menss"  *ngFor="let items of cdata" (click)="OnSelectCatbySubcat(items._id)">{{ items.catName }}</p>
                     </div>
                   </div>
+                  
                   <div class="col-md-8">
-                    <!-- <div class="row">
-                      <div class="col-md-6" *ngFor="let item of productData?.subcategoryId">
-                        <p>{{ item.subCategoryName }}</p>
+                    <div *ngIf="productData && productData.length > 0; else noProducts">
+                      <div class="row">
+                        <div class="col-md-6" *ngFor="let item of productData">
+                          <p (click)="getId(item.subcategoryId._id)" style="cursor: pointer;">{{ item.subcategoryId.subCategoryName }}</p>
+                        </div>
                       </div>
-                      
-                    </div> --->
-                 
+                    </div>
+                    <ng-template #noProducts>
+                      <p>No Products</p>
+                    </ng-template>
                   </div>
+                  
+                  
+
                 </div>
               </div>
               
@@ -73,9 +80,9 @@
             </div>
 
             <!-- <button type="submit" class="btn p-0 border-0 bg-transparent"> -->
-              <i class="fa fa-user-plus text-white" aria-hidden="true" style="font-size: 20px;"></i>
             <!-- </button> -->
           </form>
+          <span routerLink="/login"><i class="fa fa-user-plus text-white" aria-hidden="true" style="font-size: 20px;"></i></span>
 
         </div>
       </div>

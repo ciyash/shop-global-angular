@@ -12,7 +12,11 @@
   <button class="brand-scroll-btn left" (click)="scrollBrandsLeft()">&#10094;</button>
   <div class="brand-scroll-wrapper" #brandScrollable>
     <div class="brand-scroll-item" *ngFor="let brand of Topcompany">
+<<<<<<< HEAD
       <img [src]="brand.image" alt="brand.alt" />
+=======
+       <a href="{{brand.companyUrl}}" target="_blank"><img [src]="brand.image" alt="brand.alt" /></a> 
+>>>>>>> balu1
       <span>{{ brand.companyName }}</span>
     </div>
   </div>
@@ -29,7 +33,7 @@
   <button class="brand-scroll-btn left" (click)="scrollDealsLeft()">&#10094;</button>
   <div class="brand-scroll-wrapper" #dealsScrollable>
     <div class="brand-scroll-item" *ngFor="let brand of shippingData">
-      <img [src]="brand.image" alt="brand.alt" />
+      <a href="{{brand.companyUrl}}" target="_blank"><img [src]="brand.image" alt="brand.alt" /></a>
       <span>{{ brand.companyName }}</span>
     </div>
   </div>
@@ -46,7 +50,7 @@
   <button class="brand-scroll-btn left" (click)="scrollEXLeft()">&#10094;</button>
   <div class="brand-scroll-wrapper" #ExclusivesScrollable>
     <div class="brand-scroll-item" *ngFor="let brand of exclusive">
-      <img [src]="brand.image" alt="brand.alt" />
+      <a href="{{brand.companyUrl}}" target="_blank"><img [src]="brand.image" alt="brand.alt" /></a>
       <span>{{ brand.companyName }}</span>
     </div>
   </div>
@@ -56,20 +60,14 @@
 <h2 class="Explore-more">Explore more deals</h2>
 <div class="explore-buttons ">
   <button type="button" class="btn btn-dark mx-1">All Deals</button>
-  <button type="button" class="btn btn-outline-secondary mx-1">Men</button>
-  <button type="button" class="btn btn-outline-secondary mx-1">Women</button>
-  <button type="button" class="btn btn-outline-secondary mx-1">Kids</button>
-  <button type="button" class="btn btn-outline-secondary mx-1">Sweets</button>
-  <button type="button" class="btn btn-outline-secondary mx-1">Pickles</button>
-  <button type="button" class="btn btn-outline-secondary mx-1">Beauty</button>
-  <button type="button" class="btn btn-outline-secondary mx-1">Health & Wellness</button>
+  <button type="button" *ngFor="let items of cdata"  class="btn btn-outline-secondary mx-1">{{ items.catName }}</button>
 </div>
 
 
 <div class="container mt-5 mb-2">
   <div class="row">
     <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4" *ngFor="let brand of visibleBrands">
-      <img [src]="brand.image" alt="{{ brand.alt }}" class="img-fluid" />
+    <a (click)="getId(brand._id)"><img [src]="brand.image" alt="{{ brand.alt }}" class="img-fluid" /></a>  
       <p class="fw-bold mt-2">{{ brand.companyName }}</p>
     </div>
   </div>
