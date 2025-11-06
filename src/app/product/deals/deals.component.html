@@ -12,11 +12,7 @@
   <button class="brand-scroll-btn left" (click)="scrollBrandsLeft()">&#10094;</button>
   <div class="brand-scroll-wrapper" #brandScrollable>
     <div class="brand-scroll-item" *ngFor="let brand of Topcompany">
-<<<<<<< HEAD
-      <img [src]="brand.image" alt="brand.alt" />
-=======
        <a href="{{brand.companyUrl}}" target="_blank"><img [src]="brand.image" alt="brand.alt" /></a> 
->>>>>>> balu1
       <span>{{ brand.companyName }}</span>
     </div>
   </div>

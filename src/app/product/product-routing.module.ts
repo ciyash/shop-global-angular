@@ -28,10 +28,6 @@ const routes: Routes = [
   { path: 'howitwork', component: HowItWorkComponent },
   
 
-
-
-
-
 ];
 
 @NgModule({
